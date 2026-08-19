@@ -6,182 +6,180 @@
 <meta name="description" content="Eight hand-coded HTML email signatures and campaign emails, built for Outlook Classic and New Outlook.">
 <style>
 :root {
-  --bg:#f4f5f4; --card:#ffffff; --line:#e3e6e3; --line-soft:#eceeec;
-  --ink:#12151a; --ink-2:#41474d; --muted:#71797d;
-  --accent:#15803d; --accent-soft:#e8f3ec; --stage:#f0f2f0;
-  --radius:14px;
-  --shadow:0 1px 2px rgba(16,24,20,.05), 0 10px 30px -18px rgba(16,24,20,.28);
+  --bg:#f5f6f5; --card:#ffffff; --line:#e4e7e4; --line-soft:#edefed;
+  --ink:#12151a; --ink-2:#3f454b; --muted:#6f777b;
+  --accent:#15803d; --accent-soft:#e8f3ec; --stage:#f1f3f1; --track:#eceeec;
+  --shadow:0 1px 2px rgba(16,24,20,.05), 0 12px 32px -20px rgba(16,24,20,.30);
 }
 body.dark {
   --bg:#0b0d0c; --card:#15181a; --line:#252a29; --line-soft:#1e2222;
-  --ink:#f1f4f2; --ink-2:#c3cac6; --muted:#8b9490;
-  --accent:#4ade80; --accent-soft:#14281d; --stage:#0f1213;
-  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 34px -20px rgba(0,0,0,.9);
+  --ink:#f1f4f2; --ink-2:#c5ccc8; --muted:#8b9490;
+  --accent:#4ade80; --accent-soft:#14281d; --stage:#0f1213; --track:#1b1f1e;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 14px 36px -22px rgba(0,0,0,.9);
 }
 * { box-sizing:border-box; }
 html { scroll-behavior:smooth; }
 /* The page reset must not reach inside the examples. border-box made every
    fixed-width <td> eat its own padding (an 84px photo cell with 18px of
    padding became 66px of content), and the global max-width then squashed the
-   image to 66x84 while its height attribute held at 84. Email clients apply
-   none of this, so the preview was lying about the artwork. */
+   image while its height attribute held. Email clients apply none of this. */
 .frame, .frame * { box-sizing:content-box; }
 .frame img { max-width:none; }
 body {
   margin:0; background:var(--bg); color:var(--ink);
   font-family:'Inter','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
   -webkit-font-smoothing:antialiased;
-  transition:background .18s ease, color .18s ease;
+  transition:background .2s ease, color .2s ease;
 }
-img { max-width:100%; }
 a { color:inherit; }
-.wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
+.wrap { max-width:940px; margin:0 auto; padding:0 40px; }
 
 /* ---------- masthead ---------- */
-.hero { padding:76px 0 34px; }
+.hero { padding:84px 0 30px; text-align:center; }
 .eyebrow {
   display:inline-flex; align-items:center; gap:8px;
-  font-size:12px; font-weight:600; letter-spacing:.9px; text-transform:uppercase;
+  font-size:11.5px; font-weight:600; letter-spacing:1px; text-transform:uppercase;
   color:var(--accent); background:var(--accent-soft);
-  padding:6px 12px; border-radius:100px; margin:0 0 20px;
+  padding:7px 14px; border-radius:100px; margin:0 0 22px;
 }
 .dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
-h1 { font-size:clamp(30px,5vw,46px); line-height:1.06; letter-spacing:-1.4px; margin:0 0 16px; font-weight:700; }
-.lede { font-size:17px; line-height:1.62; color:var(--ink-2); max-width:60ch; margin:0 0 26px; }
-.byline { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:14px; color:var(--muted); }
-.byline a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px; }
+h1 { font-size:clamp(29px,5.2vw,44px); line-height:1.1; letter-spacing:-1.3px; margin:0 0 18px; font-weight:700; }
+.lede { font-size:16.5px; line-height:1.68; color:var(--ink-2); max-width:56ch; margin:0 auto 24px; }
+.byline { font-size:14px; color:var(--muted); line-height:1.9; }
+.byline a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line); }
 .byline a:hover { color:var(--accent); border-color:var(--accent); }
-.facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 0; }
-.fact {
-  font-size:12.5px; color:var(--ink-2); background:var(--card);
-  border:1px solid var(--line); border-radius:100px; padding:7px 14px;
-}
 
-/* ---------- sticky controls ---------- */
-.bar {
-  position:sticky; top:0; z-index:40; background:var(--bg);
-  border-bottom:1px solid var(--line); margin-top:36px;
-}
-.bar-in { display:flex; align-items:center; gap:14px; padding:12px 0; flex-wrap:wrap; }
-.seg { display:inline-flex; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:3px; }
+/* ---------- controls ---------- */
+.bar { position:sticky; top:0; z-index:40; background:var(--bg); padding:14px 0 15px; }
+.bar::after { content:''; display:block; height:1px; background:var(--line); margin:15px 0 0; }
+.controls { display:flex; justify-content:center; gap:10px; flex-wrap:wrap; }
+.seg { display:inline-flex; background:var(--track); border-radius:12px; padding:4px; gap:2px; }
 .seg button {
+  display:inline-flex; align-items:center; gap:7px;
   font:inherit; font-size:13px; font-weight:600; color:var(--muted);
-  background:none; border:0; padding:7px 15px; border-radius:7px; cursor:pointer;
-  transition:background .14s ease, color .14s ease;
+  background:none; border:0; padding:8px 16px; border-radius:9px; cursor:pointer;
+  transition:background .16s ease, color .16s ease, box-shadow .16s ease;
 }
+.seg button svg { width:15px; height:15px; }
 .seg button:hover { color:var(--ink); }
-.seg button[aria-pressed="true"] { background:var(--accent); color:#fff; }
-body.dark .seg button[aria-pressed="true"] { color:#08130c; }
-.count { margin-left:auto; font-size:13px; color:var(--muted); }
-
-/* ---------- jump nav ---------- */
-.nav { display:flex; flex-wrap:wrap; gap:8px; padding:16px 0 4px; scrollbar-width:none; }
-.nav::-webkit-scrollbar { display:none; }
-.nav-chip {
-  flex:0 0 auto; font-size:12.5px; color:var(--ink-2); text-decoration:none;
-  background:var(--card); border:1px solid var(--line); border-radius:9px;
-  padding:8px 13px; white-space:nowrap; transition:border-color .14s, color .14s;
+.seg button[aria-pressed="true"] {
+  background:var(--card); color:var(--ink);
+  box-shadow:0 1px 2px rgba(16,24,20,.10), 0 1px 1px rgba(16,24,20,.06);
 }
-.nav-chip b { color:var(--muted); font-weight:600; margin-right:6px; font-variant-numeric:tabular-nums; }
-.nav-chip:hover { border-color:var(--accent); color:var(--accent); }
-.nav-chip:hover b { color:var(--accent); }
+.seg button[aria-pressed="true"] svg { color:var(--accent); }
+body.dark .seg button[aria-pressed="true"] { box-shadow:0 1px 3px rgba(0,0,0,.6); }
 
 /* ---------- cards ---------- */
-.grid { padding:26px 0 20px; display:flex; flex-direction:column; gap:22px; }
+.grid { padding:34px 0 24px; display:flex; flex-direction:column; gap:24px; }
 .card {
-  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-  box-shadow:var(--shadow); overflow:hidden; scroll-margin-top:78px;
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  box-shadow:var(--shadow); overflow:hidden;
 }
-.card-head { display:flex; align-items:flex-start; gap:16px; padding:20px 22px 18px; }
+.card-head { display:flex; align-items:flex-start; gap:15px; padding:22px 26px 19px; }
 .num {
-  flex:0 0 auto; font-size:12px; font-weight:700; letter-spacing:.5px;
-  color:var(--muted); font-variant-numeric:tabular-nums;
+  flex:0 0 auto; font-size:12px; font-weight:700; color:var(--muted);
+  font-variant-numeric:tabular-nums;
   border:1px solid var(--line); border-radius:8px; padding:6px 9px; margin-top:1px;
 }
 .head-txt { flex:1 1 auto; min-width:0; }
 .card-head h2 { font-size:16.5px; margin:0 0 4px; letter-spacing:-.3px; font-weight:650; }
-.card-head p { margin:0; font-size:13.5px; line-height:1.55; color:var(--muted); max-width:64ch; }
-.chip {
-  flex:0 0 auto; font-size:11px; font-weight:600; letter-spacing:.4px;
-  padding:5px 11px; border-radius:100px; white-space:nowrap; margin-top:2px;
-  border:1px solid var(--line); color:var(--muted);
-}
-.chip-mail { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+.card-head p { margin:0; font-size:13.5px; line-height:1.55; color:var(--muted); }
 .stage {
-  background:var(--stage); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
-  padding:34px 22px; overflow-x:auto; -webkit-overflow-scrolling:touch;
-  transition:background .18s ease;
+  background:var(--stage);
+  border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
+  padding:40px 26px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  text-align:center; transition:background .2s ease;
 }
-.frame { display:inline-block; min-width:0; box-shadow:0 1px 2px rgba(16,24,20,.06), 0 6px 18px -12px rgba(16,24,20,.30); }
-body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,0,0,.9); }
-/* the campaign email carries its own page background, so it needs no lift */
+.frame {
+  display:inline-block; text-align:left; min-width:0;
+  box-shadow:0 1px 2px rgba(16,24,20,.06), 0 8px 22px -14px rgba(16,24,20,.32);
+}
+body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 10px 26px -16px rgba(0,0,0,.9); }
 .card:last-of-type .frame { box-shadow:none; }
-.card-foot { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 22px; }
+.card-foot { display:flex; align-items:center; justify-content:space-between; gap:16px; padding:14px 26px; }
 .card-foot code { font-size:12px; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
 .open { font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none; white-space:nowrap; }
 .open:hover { text-decoration:underline; }
 
 /* ---------- notes + footer ---------- */
 .note {
-  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
-  padding:20px 22px; font-size:13.5px; line-height:1.62; color:var(--muted); margin:4px 0 0;
+  background:var(--card); border:1px solid var(--line); border-radius:16px;
+  padding:24px 26px; font-size:13.5px; line-height:1.68; color:var(--muted);
+  max-width:70ch; margin:6px auto 0; text-align:center;
 }
 .note b { color:var(--ink-2); font-weight:600; }
-.foot { padding:40px 0 64px; font-size:13.5px; color:var(--muted); line-height:1.7; }
+.foot { padding:44px 0 72px; font-size:13.5px; color:var(--muted); line-height:1.8; text-align:center; }
 .foot a { color:var(--ink-2); }
 
-@media (max-width:700px) {
-  .wrap { padding:0 16px; }
-  .hero { padding:44px 0 22px; }
+@media (max-width:760px) {
+  .wrap { padding:0 22px; }
+  .hero { padding:46px 0 20px; }
   .lede { font-size:15.5px; }
-  .bar-in { gap:8px; padding:10px 0; }
+  .bar { padding:11px 0 12px; }
+  .bar::after { margin-top:12px; }
+  .controls { gap:8px; }
   .seg { flex:1 1 auto; }
-  .seg button { flex:1 1 auto; padding:7px 10px; font-size:12.5px; }
-  .count { display:none; }
-  .card-head { flex-wrap:wrap; padding:16px 16px 14px; gap:12px; }
-  .head-txt { flex:1 1 100%; order:3; }
-  .chip { margin-left:auto; }
-  .stage { padding:22px 14px; }
-  .card-foot { padding:12px 16px; }
-  .nav { flex-wrap:nowrap; overflow-x:auto; }
+  .seg button { flex:1 1 auto; justify-content:center; padding:9px 12px; font-size:12.5px; }
+  .grid { gap:18px; padding:26px 0 18px; }
+  .card-head { padding:18px 18px 15px; gap:12px; }
+  .stage { padding:26px 16px; }
+  .card-foot { padding:13px 18px; }
+  .note { padding:20px 18px; }
+}
+@media (max-width:420px) {
+  .wrap { padding:0 16px; }
+  .seg button span { display:none; }
+  .seg button { padding:10px 14px; }
 }
 </style></head>
 <body>
+<script>
+/* Restore the saved view before first paint so there is no flash of the
+   wrong theme. Wrapped in try/catch because storage throws on file:// in
+   some browsers, and a portfolio page should never die over a preference. */
+(function(){
+  try {
+    var t = localStorage.getItem('es-theme');
+    var v = localStorage.getItem('es-view');
+    if (t === 'dark') document.body.classList.add('dark');
+    if (v === 'mob')  document.body.classList.add('mob');
+  } catch (e) {}
+})();
+</script>
 
 <header class="hero wrap">
-  <span class="eyebrow"><span class="dot"></span>Hand-coded, no builder</span>
+  <span class="eyebrow"><span class="dot"></span>Written by hand, not generated</span>
   <h1>HTML email signatures<br>that survive Outlook.</h1>
-  <p class="lede">Eight examples, written by hand in tables and inline CSS. Built and checked for
-  Outlook Classic and New Outlook, light and dark, desktop and mobile. Phone numbers, addresses and
-  emails are clickable throughout.</p>
-  <div class="byline">
-    <span>Dard Rezniqi &middot; Software Developer &middot; Prishtina</span>
-    <a href="mailto:dard.rezniqi@gmail.com">dard.rezniqi@gmail.com</a>
+  <p class="lede">Eight examples, written line by line in tables and inline CSS - no drag-and-drop
+  builder, no generator, no framework. Built and checked for Outlook Classic and New Outlook, light
+  and dark, desktop and mobile. Phone numbers, addresses and emails are clickable throughout.</p>
+  <p class="byline">
+    Dard Rezniqi &middot; Software Developer &middot; Prishtina<br>
+    <a href="mailto:dard.rezniqi@gmail.com">dard.rezniqi@gmail.com</a> &nbsp;
     <a href="https://github.com/dardrezniqi/email-signatures" target="_blank" rel="noopener">Source on GitHub</a>
-  </div>
-  <div class="facts">
-    <span class="fact">Table layout, inline CSS</span>
-    <span class="fact">VML buttons for Outlook</span>
-    <span class="fact">Dark-mode logo swaps</span>
-    <span class="fact">Readable with images off</span>
-  </div>
+  </p>
 </header>
 
 <div class="bar">
-  <div class="wrap bar-in">
+  <div class="wrap controls">
     <div class="seg" role="group" aria-label="Colour scheme">
-      <button id="t-light" aria-pressed="true">Light</button>
-      <button id="t-dark" aria-pressed="false">Dark</button>
+      <button id="t-light" aria-pressed="true" title="Light">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><span>Light</span>
+      </button>
+      <button id="t-dark" aria-pressed="false" title="Dark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5z"/></svg><span>Dark</span>
+      </button>
     </div>
     <div class="seg" role="group" aria-label="Viewport">
-      <button id="t-desk" aria-pressed="true">Desktop</button>
-      <button id="t-mob" aria-pressed="false">Mobile 390</button>
+      <button id="t-desk" aria-pressed="true" title="Desktop">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4" width="19" height="12.5" rx="1.8"/><path d="M9 20.5h6M12 16.5v4"/></svg><span>Desktop</span>
+      </button>
+      <button id="t-mob" aria-pressed="false" title="Mobile">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.4"/><path d="M11 18.6h2"/></svg><span>Mobile</span>
+      </button>
     </div>
-    <span class="count">8 examples</span>
   </div>
 </div>
-
-<nav class="nav wrap" aria-label="Jump to example"><a class="nav-chip" href="#ex1"><b>01</b> Classic divider</a><a class="nav-chip" href="#ex2"><b>02</b> Stacked logo</a><a class="nav-chip" href="#ex3"><b>03</b> Accent card</a><a class="nav-chip" href="#ex4"><b>04</b> Signature + banner</a><a class="nav-chip" href="#ex5"><b>05</b> Corporate, full</a><a class="nav-chip" href="#ex6"><b>06</b> Minimal, no images</a><a class="nav-chip" href="#ex7"><b>07</b> Reversed header bar</a><a class="nav-chip" href="#ex8"><b>08</b> Acquisition email</a></nav>
 
 <main class="grid wrap">
       <article class="card" id="ex1">
@@ -191,7 +189,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Classic divider</h2>
             <p>Photo, a 1px rule, details beside it. The layout most briefs ask for.</p>
           </div>
-          <span class="chip chip-sig">Personal</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v1 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
@@ -289,11 +286,14 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Stacked logo</h2>
             <p>Wordmark on top, labelled contact rows. The logo swaps file in dark mode.</p>
           </div>
-          <span class="chip chip-sig">Personal</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v2 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="420"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:420px; max-width:420px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <tr>
+    <td style="padding:14px 16px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
 
   
   <tr>
@@ -362,6 +362,9 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
       </table>
     </td>
   </tr>
+      </table>
+    </td>
+  </tr>
 
 </table>
 </div></div>
@@ -377,7 +380,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Accent card</h2>
             <p>Tinted panel with a solid accent bar. Square corners, on purpose.</p>
           </div>
-          <span class="chip chip-sig">Personal</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v3 sig-wrap" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
@@ -470,7 +472,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Signature + banner</h2>
             <p>A promo strip under the signature, with a bulletproof VML/HTML button.</p>
           </div>
-          <span class="chip chip-sig">Personal</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v4 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
@@ -580,11 +581,14 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Corporate, full</h2>
             <p>Logo, department, landline and mobile split, social row, legal footer.</p>
           </div>
-          <span class="chip chip-sig">Pozhegu Brothers</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v5 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="500"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:500px; max-width:500px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <tr>
+    <td style="padding:16px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
 
   
   <tr>
@@ -690,6 +694,9 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
       Nese e keni pranuar gabimisht, ju lutemi fshijeni dhe njoftoni derguesin.
     </td>
   </tr>
+      </table>
+    </td>
+  </tr>
 
 </table>
 </div></div>
@@ -705,7 +712,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Minimal, no images</h2>
             <p>Zero images, about 1.5 KB. Nothing to host, nothing that can break.</p>
           </div>
-          <span class="chip chip-sig">Personal</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v6 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="420"
@@ -755,7 +761,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Reversed header bar</h2>
             <p>White on a solid brand fill, the riskiest thing to put in a signature.</p>
           </div>
-          <span class="chip chip-sig">Pozhegu Brothers</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v7 sig-wrap" role="presentation" cellpadding="0" cellspacing="0" border="0" width="480"
@@ -763,19 +768,19 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
 
   
   <tr>
-    <td class="sig-bar" bgcolor="#0f766e" style="background-color:#0f766e; padding:11px 18px;">
+    <td class="sig-bar" bgcolor="#b45309" style="background-color:#b45309; padding:11px 18px;">
       <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
              style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
         <tr>
           <td valign="middle" width="30" style="width:30px; padding:0 10px 0 0;">
-            <img src="data:image/png;base64,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"
+            <img src="data:image/png;base64,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"
                  width="30" height="30" alt="PB"
                  style="display:block; width:30px; height:30px; border:0; outline:none; text-decoration:none;">
           </td>
           <td class="sig-barname" valign="middle" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:21px; mso-line-height-rule:exactly; font-weight:700; color:#ffffff; letter-spacing:1.4px;">
             POZHEGU BROTHERS
           </td>
-          <td class="sig-bartag" valign="middle" align="right" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:11px; line-height:21px; mso-line-height-rule:exactly; color:#a7f3ea; letter-spacing:0.4px;">
+          <td class="sig-bartag" valign="middle" align="right" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:11px; line-height:21px; mso-line-height-rule:exactly; color:#f7dcae; letter-spacing:0.4px;">
             Ndertim &nbsp;·&nbsp; Interier
           </td>
         </tr>
@@ -818,8 +823,8 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
         </tr>
         <tr><td height="4" style="height:4px; font-size:0; line-height:0;">&nbsp;</td></tr>
         <tr>
-          <td class="sig-accent" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#0f766e;">
-            <a href="https://pozhegubrothers.com" style="color:#0f766e; text-decoration:none; font-weight:600;">pozhegubrothers.com</a>
+          <td class="sig-accent" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#b45309;">
+            <a href="https://pozhegubrothers.com" style="color:#b45309; text-decoration:none; font-weight:600;">pozhegubrothers.com</a>
           </td>
         </tr>
 
@@ -842,7 +847,6 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
             <h2>Acquisition email</h2>
             <p>600px campaign email: offer band, product shot, benefit ticks, one CTA.</p>
           </div>
-          <span class="chip chip-mail">Banka Dardania</span>
         </header>
         <div class="stage"><div class="frame">
 <table class="v8 ad-page" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
@@ -980,15 +984,15 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
       </article></main>
 
 <div class="wrap">
-  <p class="note"><b>On the demo brands.</b> Pozhegu Brothers and Banka Dardania are invented companies.
-  No real institution, product, offer, phone number, address or domain appears anywhere, and every link
-  in the campaign email points back to this page rather than to a bank. The social glyphs and the
-  monogram are placeholders, to be swapped for real artwork before anything ships.</p>
+  <p class="note"><b>On the demo brands.</b> Pozhegu Brothers and Banka Dardania are invented
+  companies. No real institution, product, offer, phone number, address or domain appears anywhere,
+  and every link in the campaign email points back to this page rather than to a bank. The social
+  glyphs and the monogram are placeholders, to be swapped for real artwork before anything ships.</p>
 </div>
 
 <footer class="foot wrap">
   Dark mode here is driven by a class so it works in any browser; in a real client it runs off
-  <code>prefers-color-scheme</code>. Below 700px the examples switch to their own mobile rules
+  <code>prefers-color-scheme</code>. Below 760px each example switches to its own mobile rules
   automatically &mdash; the toggle is there so the same thing can be checked from a desktop.<br>
   <a href="mailto:dard.rezniqi@gmail.com">dard.rezniqi@gmail.com</a> &middot;
   <a href="https://github.com/dardrezniqi" target="_blank" rel="noopener">github.com/dardrezniqi</a>
@@ -1000,7 +1004,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.mob .v1 .sig-rule-td, body.mob .v1.sig-rule-td { display: none !important; }
   body.mob .v1 .sig-body-td, body.mob .v1.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
   body.mob .v1 .sig-name, body.mob .v1.sig-name { font-size: 17px !important; }
-  body.mob .v1 .sig-meta, body.mob .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }@media (max-width: 700px) {  body .v1 .sig-wrap, body .v1.sig-wrap { width: 100% !important; }
+  body.mob .v1 .sig-meta, body.mob .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }@media (max-width: 760px) {  body .v1 .sig-wrap, body .v1.sig-wrap { width: 100% !important; }
   body .v1 .sig-stack, body .v1.sig-stack { display: block !important; width: 100% !important; }
   body .v1 .sig-photo-td, body .v1.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
   body .v1 .sig-rule-td, body .v1.sig-rule-td { display: none !important; }
@@ -1017,7 +1021,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.dark .v1 .sig-hair, body.dark .v1.sig-hair { background-color: #3a3a3c !important; }  body.mob .v2 .sig-wrap, body.mob .v2.sig-wrap { width: 100% !important; }
   body.mob .v2 .sig-name, body.mob .v2.sig-name { font-size: 17px !important; }
   body.mob .v2 .sig-meta, body.mob .v2.sig-meta { font-size: 13px !important; }
-  body.mob .v2 .sig-label, body.mob .v2.sig-label { width: 46px !important; }@media (max-width: 700px) {  body .v2 .sig-wrap, body .v2.sig-wrap { width: 100% !important; }
+  body.mob .v2 .sig-label, body.mob .v2.sig-label { width: 46px !important; }@media (max-width: 760px) {  body .v2 .sig-wrap, body .v2.sig-wrap { width: 100% !important; }
   body .v2 .sig-name, body .v2.sig-name { font-size: 17px !important; }
   body .v2 .sig-meta, body .v2.sig-meta { font-size: 13px !important; }
   body .v2 .sig-label, body .v2.sig-label { width: 46px !important; }
@@ -1033,7 +1037,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.mob .v3 .sig-photo-td, body.mob .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
   body.mob .v3 .sig-body-td, body.mob .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
   body.mob .v3 .sig-pad, body.mob .v3.sig-pad { padding: 16px !important; }
-  body.mob .v3 .sig-name, body.mob .v3.sig-name { font-size: 17px !important; }@media (max-width: 700px) {  body .v3 .sig-wrap, body .v3.sig-wrap { width: 100% !important; }
+  body.mob .v3 .sig-name, body.mob .v3.sig-name { font-size: 17px !important; }@media (max-width: 760px) {  body .v3 .sig-wrap, body .v3.sig-wrap { width: 100% !important; }
   body .v3 .sig-inner, body .v3.sig-inner { display: block !important; width: 100% !important; }
   body .v3 .sig-photo-td, body .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
   body .v3 .sig-body-td, body .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
@@ -1054,7 +1058,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
     /* Banner: text over the button instead of beside it */
   body.mob .v4 .ban-stack, body.mob .v4.ban-stack { display: block !important; width: 100% !important; }
   body.mob .v4 .ban-copy-td, body.mob .v4.ban-copy-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
-  body.mob .v4 .ban-cta-td, body.mob .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }@media (max-width: 700px) {  body .v4 .sig-wrap, body .v4.sig-wrap { width: 100% !important; }
+  body.mob .v4 .ban-cta-td, body.mob .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }@media (max-width: 760px) {  body .v4 .sig-wrap, body .v4.sig-wrap { width: 100% !important; }
   body .v4 .sig-stack, body .v4.sig-stack { display: block !important; width: 100% !important; }
   body .v4 .sig-photo-td, body .v4.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
   body .v4 .sig-body-td, body .v4.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
@@ -1076,7 +1080,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.mob .v5 .sig-name, body.mob .v5.sig-name { font-size: 17px !important; }
   body.mob .v5 .sig-label, body.mob .v5.sig-label { width: 58px !important; }
   body.mob .v5 .sig-legal, body.mob .v5.sig-legal { font-size: 10px !important; }
-  body.mob .v5 .sig-logo, body.mob .v5.sig-logo { width: 168px !important; height: auto !important; }@media (max-width: 700px) {  body .v5 .sig-wrap, body .v5.sig-wrap { width: 100% !important; }
+  body.mob .v5 .sig-logo, body.mob .v5.sig-logo { width: 168px !important; height: auto !important; }@media (max-width: 760px) {  body .v5 .sig-wrap, body .v5.sig-wrap { width: 100% !important; }
   body .v5 .sig-name, body .v5.sig-name { font-size: 17px !important; }
   body .v5 .sig-label, body .v5.sig-label { width: 58px !important; }
   body .v5 .sig-legal, body .v5.sig-legal { font-size: 10px !important; }
@@ -1091,7 +1095,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.dark .v5 .sig-hair, body.dark .v5.sig-hair { background-color: #3a3a3c !important; }
   body.dark .v5 .sig-legal, body.dark .v5.sig-legal { color: #78716c !important; }  body.mob .v6 .sig-wrap, body.mob .v6.sig-wrap { width: 100% !important; }
   body.mob .v6 .sig-name, body.mob .v6.sig-name { font-size: 16px !important; }
-  body.mob .v6 .sig-meta, body.mob .v6.sig-meta { font-size: 13px !important; }@media (max-width: 700px) {  body .v6 .sig-wrap, body .v6.sig-wrap { width: 100% !important; }
+  body.mob .v6 .sig-meta, body.mob .v6.sig-meta { font-size: 13px !important; }@media (max-width: 760px) {  body .v6 .sig-wrap, body .v6.sig-wrap { width: 100% !important; }
   body .v6 .sig-name, body .v6.sig-name { font-size: 16px !important; }
   body .v6 .sig-meta, body .v6.sig-meta { font-size: 13px !important; }
 }
@@ -1105,7 +1109,7 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.mob .v7 .sig-barname, body.mob .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
   body.mob .v7 .sig-bartag, body.mob .v7.sig-bartag { display: none !important; }
   body.mob .v7 .sig-name, body.mob .v7.sig-name { font-size: 17px !important; }
-  body.mob .v7 .sig-body, body.mob .v7.sig-body { padding: 14px 16px !important; }@media (max-width: 700px) {  body .v7 .sig-wrap, body .v7.sig-wrap { width: 100% !important; }
+  body.mob .v7 .sig-body, body.mob .v7.sig-body { padding: 14px 16px !important; }@media (max-width: 760px) {  body .v7 .sig-wrap, body .v7.sig-wrap { width: 100% !important; }
   body .v7 .sig-barname, body .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
   body .v7 .sig-bartag, body .v7.sig-bartag { display: none !important; }
   body .v7 .sig-name, body .v7.sig-name { font-size: 17px !important; }
@@ -1115,15 +1119,15 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.dark .v7 .sig-name, body.dark .v7.sig-name { color: #f5f5f7 !important; }
   body.dark .v7 .sig-role, body.dark .v7.sig-role { color: #a1a1a6 !important; }
   body.dark .v7 .sig-meta, body.dark .v7.sig-meta, body.dark .v7 .sig-meta a, body.dark .v7.sig-meta a { color: #d6d6d8 !important; }
-  body.dark .v7 .sig-accent, body.dark .v7.sig-accent, body.dark .v7 .sig-accent a, body.dark .v7.sig-accent a { color: #5eead4 !important; }
+  body.dark .v7 .sig-accent, body.dark .v7.sig-accent, body.dark .v7 .sig-accent a, body.dark .v7.sig-accent a { color: #f0a04b !important; }
   body.dark .v7 .sig-hair, body.dark .v7.sig-hair { background-color: #3a3a3c !important; }
     /* Bar stays in the same family on purpose - see the note above */
-  body.dark .v7 .sig-bar, body.dark .v7.sig-bar { background-color: #0f766e !important; }  body.mob .v8 .ad-shell, body.mob .v8.ad-shell { width: 100% !important; }
+  body.dark .v7 .sig-bar, body.dark .v7.sig-bar { background-color: #b45309 !important; }  body.mob .v8 .ad-shell, body.mob .v8.ad-shell { width: 100% !important; }
   body.mob .v8 .ad-pad, body.mob .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
   body.mob .v8 .ad-h1, body.mob .v8.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
   body.mob .v8 .ad-card-img, body.mob .v8.ad-card-img { width: 100% !important; height: auto !important; }
   body.mob .v8 .ad-btn, body.mob .v8.ad-btn { width: 100% !important; }
-  body.mob .v8 .ad-band, body.mob .v8.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }@media (max-width: 700px) {  body .v8 .ad-shell, body .v8.ad-shell { width: 100% !important; }
+  body.mob .v8 .ad-band, body.mob .v8.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }@media (max-width: 760px) {  body .v8 .ad-shell, body .v8.ad-shell { width: 100% !important; }
   body .v8 .ad-pad, body .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
   body .v8 .ad-h1, body .v8.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
   body .v8 .ad-card-img, body .v8.ad-card-img { width: 100% !important; height: auto !important; }
@@ -1140,17 +1144,43 @@ body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,
   body.dark .v8 .ad-strong, body.dark .v8.ad-strong { color: #f5f5f7 !important; }
   body.dark .v8 .ad-btn, body.dark .v8.ad-btn { background-color: #e0a80d !important; color: #0f2d52 !important; }</style>
 <script>
-var b=document.body,
-    tl=document.getElementById('t-light'), td=document.getElementById('t-dark'),
-    tk=document.getElementById('t-desk'),  tm=document.getElementById('t-mob');
-function swap(dark){
-  var n=document.querySelectorAll('img.swap');
-  for(var i=0;i<n.length;i++) n[i].src=n[i].getAttribute(dark?'data-dark':'data-light');
+var b  = document.body,
+    tl = document.getElementById('t-light'), td = document.getElementById('t-dark'),
+    tk = document.getElementById('t-desk'),  tm = document.getElementById('t-mob');
+
+function save(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+function pair(on, off) {
+  on.setAttribute('aria-pressed', 'true');
+  off.setAttribute('aria-pressed', 'false');
 }
-function pair(on,off){ on.setAttribute('aria-pressed','true'); off.setAttribute('aria-pressed','false'); }
-tl.onclick=function(){ b.classList.remove('dark'); pair(tl,td); swap(false); };
-td.onclick=function(){ b.classList.add('dark');    pair(td,tl); swap(true);  };
-tk.onclick=function(){ b.classList.remove('mob');  pair(tk,tm); };
-tm.onclick=function(){ b.classList.add('mob');     pair(tm,tk); };
+function swap(dark) {
+  var n = document.querySelectorAll('img.swap');
+  for (var i = 0; i < n.length; i++) {
+    n[i].src = n[i].getAttribute(dark ? 'data-dark' : 'data-light');
+  }
+}
+function theme(dark) {
+  b.classList.toggle('dark', dark);
+  pair(dark ? td : tl, dark ? tl : td);
+  swap(dark);
+  save('es-theme', dark ? 'dark' : 'light');
+}
+function view(mob) {
+  b.classList.toggle('mob', mob);
+  pair(mob ? tm : tk, mob ? tk : tm);
+  save('es-view', mob ? 'mob' : 'desk');
+}
+tl.onclick = function () { theme(false); };
+td.onclick = function () { theme(true);  };
+tk.onclick = function () { view(false);  };
+tm.onclick = function () { view(true);   };
+
+/* Sync the buttons and the swapped images with whatever the pre-paint script
+   restored from storage. */
+var isDark = b.classList.contains('dark');
+pair(isDark ? td : tl, isDark ? tl : td);
+swap(isDark);
+var isMob = b.classList.contains('mob');
+pair(isMob ? tm : tk, isMob ? tk : tm);
 </script>
 </body></html>

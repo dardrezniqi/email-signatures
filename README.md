@@ -13,7 +13,7 @@ and desktop/mobile.
 | `04-signature-banner.html` | Signature plus a promo strip with a CTA button |
 | `05-pozhegu-corporate.html` | Full corporate: logo, department, socials, legal footer |
 | `06-minimal-text.html` | Zero images, ~1.5 KB, cannot break |
-| `07-header-bar.html` | Reversed white-on-brand header bar |
+| `07-header-bar.html` | Reversed white-on-brand header bar, same palette as 05 |
 | `08-banka-dardania-signup.html` | 600px acquisition email: offer band, card shot, ticks, CTA |
 | `index.html` | All eight, with light/dark and desktop/mobile toggles |
 
@@ -78,6 +78,10 @@ everything is square throughout instead.
 else gets a padded `<a>`, and conditional comments make sure only one renders.
 Word ignores padding on anchors, so without the VML half the button collapses
 to plain blue text. See 04 and 08.
+
+**Insets come from padding on a `<td>`.** 02 and 05 sit inside one padded
+cell rather than starting flush at the edge - margin on a table, or padding on
+the table itself, both get dropped by Word.
 
 **Social icons are separate `<td>`s**, not one image with an image map. Outlook
 drops image maps and you lose every link at once.
@@ -148,10 +152,12 @@ reason.
 ## The preview page
 
 `index.html` is responsive in its own right, not a desktop page with a
-simulator button bolted on. Below 700px each example switches to its own mobile
+simulator button bolted on. Below 760px each example switches to its own mobile
 rules for real; the Mobile toggle exists so the same thing can be checked from
 a desktop. Signatures are fixed-width by design, so each stage scrolls on its
-own axis rather than forcing a horizontal scrollbar across the whole page.
+own axis rather than forcing a horizontal scrollbar across the whole page. The
+light/dark and desktop/mobile choice is remembered in `localStorage`, restored
+before first paint so there is no flash of the wrong theme.
 
 ## Tested
 

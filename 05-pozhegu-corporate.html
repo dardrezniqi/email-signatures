@@ -29,6 +29,10 @@
     because Outlook inherits the parent line-height into small text and the
     footer ends up double-spaced if you don't set it explicitly.
 
+    Everything sits inside one padded cell rather than starting flush at the
+  edge. Padding on a <td> is the only inset Outlook honours reliably - margin
+  on the table, or padding on the table itself, both get dropped by Word.
+
   REPLACE BEFORE USE: every src="https://REPLACE-ME..." with a hosted URL.
 -->
 
@@ -80,6 +84,10 @@
 <!-- ===== SIGNATURE START ===== -->
 <table class="sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="500"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:500px; max-width:500px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <tr>
+    <td style="padding:16px 18px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
 
   <!-- Logo -->
   <tr>
@@ -196,6 +204,9 @@
     <td class="sig-legal" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:11px; line-height:16px; mso-line-height-rule:exactly; color:#a8a29e;">
       Ky email dhe cdo dokument i bashkangjitur jane konfidenciale dhe u dedikohen vetem personave te adresuar.
       Nese e keni pranuar gabimisht, ju lutemi fshijeni dhe njoftoni derguesin.
+    </td>
+  </tr>
+      </table>
     </td>
   </tr>
 

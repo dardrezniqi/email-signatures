@@ -19,6 +19,10 @@
   The label column ("Tel / Email / Web") is a fixed-width td rather than a
   text-indent, because Outlook Classic ignores text-indent inside table cells.
 
+    Everything sits inside one padded cell rather than starting flush at the
+  edge. Padding on a <td> is the only inset Outlook honours reliably - margin
+  on the table, or padding on the table itself, both get dropped by Word.
+
   REPLACE BEFORE USE: src="https://REPLACE-ME..." with your hosted logo URL.
 -->
 
@@ -67,6 +71,10 @@
 <!-- ===== SIGNATURE START — copy from here ===== -->
 <table class="sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="420"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:420px; max-width:420px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <tr>
+    <td style="padding:14px 16px;">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
 
   <!-- Logo -->
   <tr>
@@ -142,6 +150,9 @@
           </td>
         </tr>
 
+      </table>
+    </td>
+  </tr>
       </table>
     </td>
   </tr>
