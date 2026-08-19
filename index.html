@@ -1,254 +1,192 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
+<html lang="en"><head>
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HTML email signatures - Dard Rezniqi</title>
+<meta name="description" content="Eight hand-coded HTML email signatures and campaign emails, built for Outlook Classic and New Outlook.">
 <style>
-* { box-sizing: border-box; }
-body { margin:0; font-family:'Segoe UI',Roboto,Helvetica,Arial,sans-serif; background:#f2f3f5; color:#1a1a1c; }
-.wrap { max-width:1020px; margin:0 auto; padding:44px 24px 72px; }
+:root {
+  --bg:#f4f5f4; --card:#ffffff; --line:#e3e6e3; --line-soft:#eceeec;
+  --ink:#12151a; --ink-2:#41474d; --muted:#71797d;
+  --accent:#15803d; --accent-soft:#e8f3ec; --stage:#f0f2f0;
+  --radius:14px;
+  --shadow:0 1px 2px rgba(16,24,20,.05), 0 10px 30px -18px rgba(16,24,20,.28);
+}
+body.dark {
+  --bg:#0b0d0c; --card:#15181a; --line:#252a29; --line-soft:#1e2222;
+  --ink:#f1f4f2; --ink-2:#c3cac6; --muted:#8b9490;
+  --accent:#4ade80; --accent-soft:#14281d; --stage:#0f1213;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 12px 34px -20px rgba(0,0,0,.9);
+}
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:'Inter','Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  -webkit-font-smoothing:antialiased;
+  transition:background .18s ease, color .18s ease;
+}
 img { max-width:100%; }
-h1 { font-size:29px; margin:0 0 6px; letter-spacing:-0.6px; }
-.lede { color:#6e6e73; margin:0 0 8px; font-size:15px; line-height:1.6; max-width:66ch; }
-.note { color:#8e8e93; font-size:13px; line-height:1.6; max-width:66ch; margin:0 0 26px; }
-.toolbar { display:flex; gap:8px; flex-wrap:wrap; margin:0 0 30px; position:sticky; top:0; padding:14px 0; background:#f2f3f5; z-index:5; }
-button { font:inherit; font-size:13px; font-weight:600; padding:8px 15px; border:1px solid #d3d3d8; background:#fff; color:#1a1a1c; cursor:pointer; }
-button[aria-pressed="true"] { background:#2563eb; border-color:#2563eb; color:#fff; }
-.card { background:#fff; border:1px solid #e3e3e6; margin:0 0 22px; }
-.card header { padding:16px 20px; border-bottom:1px solid #e3e3e6; }
-.hrow { display:flex; align-items:baseline; justify-content:space-between; gap:12px; }
-.card h2 { font-size:15px; margin:0 0 3px; }
-.who { font-size:11px; text-transform:uppercase; letter-spacing:0.8px; color:#8e8e93; white-space:nowrap; }
-.card header p { margin:0 0 6px; font-size:13px; color:#6e6e73; }
-.card code { font-size:11.5px; color:#8e8e93; }
-.stage { padding:28px 20px; overflow-x:auto; -webkit-overflow-scrolling:touch; }
-.v8, .v9 { width:100% !important; }
-body.dark { background:#0b0b0d; color:#f5f5f7; }
-body.dark .toolbar { background:#0b0b0d; }
-body.dark .card { background:#151517; border-color:#2c2c2e; }
-body.dark .card header { border-color:#2c2c2e; }
-body.dark .card header p, body.dark .lede { color:#a1a1a6; }
-body.dark .note { color:#787880; }
-body.dark .stage { background:#141416; }
-body.dark button { background:#1f1f22; border-color:#3a3a3c; color:#f5f5f7; }
-body.dark button[aria-pressed="true"] { background:#2563eb; border-color:#2563eb; }
-body.mob .frame { width:390px; }
-body.mob .stage { padding:28px 12px; }
+a { color:inherit; }
+.wrap { max-width:1080px; margin:0 auto; padding:0 28px; }
 
-/* --- the page itself, on real phones --- */
-@media (max-width: 760px) {
-  .wrap { padding:26px 14px 48px; }
-  h1 { font-size:23px; }
-  .lede { font-size:14px; }
-  .note { font-size:12px; }
-  .toolbar { padding:10px 0; margin:0 0 20px; gap:6px; }
-  button { font-size:12px; padding:7px 11px; flex:1 1 auto; }
-  .card header { padding:13px 15px; }
-  .hrow { flex-direction:column; align-items:flex-start; gap:2px; }
-  .who { font-size:10px; }
-  .stage { padding:18px 12px; }
-  /* The signatures are fixed-width by design. Below their natural width the
-     preview would either clip or force a page-wide horizontal scrollbar, so
-     the stage scrolls on its own axis instead. */
-  .frame { min-width:0; }
+/* ---------- masthead ---------- */
+.hero { padding:76px 0 34px; }
+.eyebrow {
+  display:inline-flex; align-items:center; gap:8px;
+  font-size:12px; font-weight:600; letter-spacing:.9px; text-transform:uppercase;
+  color:var(--accent); background:var(--accent-soft);
+  padding:6px 12px; border-radius:100px; margin:0 0 20px;
 }
-    body.mob .v1 .sig-wrap, body.mob .v1.sig-wrap { width: 100% !important; }
-    body.mob .v1 .sig-stack, body.mob .v1.sig-stack { display: block !important; width: 100% !important; }
-    body.mob .v1 .sig-photo-td, body.mob .v1.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
-    body.mob .v1 .sig-rule-td, body.mob .v1.sig-rule-td { display: none !important; }
-    body.mob .v1 .sig-body-td, body.mob .v1.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body.mob .v1 .sig-name, body.mob .v1.sig-name { font-size: 17px !important; }
-    body.mob .v1 .sig-meta, body.mob .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }@media (max-width: 620px) {    body .v1 .sig-wrap, body .v1.sig-wrap { width: 100% !important; }
-    body .v1 .sig-stack, body .v1.sig-stack { display: block !important; width: 100% !important; }
-    body .v1 .sig-photo-td, body .v1.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
-    body .v1 .sig-rule-td, body .v1.sig-rule-td { display: none !important; }
-    body .v1 .sig-body-td, body .v1.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body .v1 .sig-name, body .v1.sig-name { font-size: 17px !important; }
-    body .v1 .sig-meta, body .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }
+.dot { width:6px; height:6px; border-radius:50%; background:currentColor; }
+h1 { font-size:clamp(30px,5vw,46px); line-height:1.06; letter-spacing:-1.4px; margin:0 0 16px; font-weight:700; }
+.lede { font-size:17px; line-height:1.62; color:var(--ink-2); max-width:60ch; margin:0 0 26px; }
+.byline { display:flex; flex-wrap:wrap; gap:8px 20px; font-size:14px; color:var(--muted); }
+.byline a { color:var(--ink-2); text-decoration:none; border-bottom:1px solid var(--line); padding-bottom:1px; }
+.byline a:hover { color:var(--accent); border-color:var(--accent); }
+.facts { display:flex; flex-wrap:wrap; gap:10px; margin:30px 0 0; }
+.fact {
+  font-size:12.5px; color:var(--ink-2); background:var(--card);
+  border:1px solid var(--line); border-radius:100px; padding:7px 14px;
 }
-    body.dark .v1 .sig-bg, body.dark .v1.sig-bg { background-color: #1c1c1e !important; }
-    body.dark .v1 .sig-name, body.dark .v1.sig-name { color: #f5f5f7 !important; }
-    body.dark .v1 .sig-role, body.dark .v1.sig-role { color: #a1a1a6 !important; }
-    body.dark .v1 .sig-meta, body.dark .v1.sig-meta, body.dark .v1 .sig-meta a, body.dark .v1.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v1 .sig-accent, body.dark .v1.sig-accent, body.dark .v1 .sig-accent a, body.dark .v1.sig-accent a { color: #4ade80 !important; }
-    body.dark .v1 .sig-rule, body.dark .v1.sig-rule { background-color: #3a3a3c !important; }
-    body.dark .v1 .sig-hair, body.dark .v1.sig-hair { background-color: #3a3a3c !important; }    body.mob .v2 .sig-wrap, body.mob .v2.sig-wrap { width: 100% !important; }
-    body.mob .v2 .sig-name, body.mob .v2.sig-name { font-size: 17px !important; }
-    body.mob .v2 .sig-meta, body.mob .v2.sig-meta { font-size: 13px !important; }
-    body.mob .v2 .sig-label, body.mob .v2.sig-label { width: 46px !important; }@media (max-width: 620px) {    body .v2 .sig-wrap, body .v2.sig-wrap { width: 100% !important; }
-    body .v2 .sig-name, body .v2.sig-name { font-size: 17px !important; }
-    body .v2 .sig-meta, body .v2.sig-meta { font-size: 13px !important; }
-    body .v2 .sig-label, body .v2.sig-label { width: 46px !important; }
+
+/* ---------- sticky controls ---------- */
+.bar {
+  position:sticky; top:0; z-index:40; background:var(--bg);
+  border-bottom:1px solid var(--line); margin-top:36px;
 }
-    body.dark .v2 .sig-bg, body.dark .v2.sig-bg { background-color: #1c1c1e !important; }
-    body.dark .v2 .sig-name, body.dark .v2.sig-name { color: #f5f5f7 !important; }
-    body.dark .v2 .sig-role, body.dark .v2.sig-role { color: #a1a1a6 !important; }
-    body.dark .v2 .sig-label, body.dark .v2.sig-label { color: #8e8e93 !important; }
-    body.dark .v2 .sig-meta, body.dark .v2.sig-meta, body.dark .v2 .sig-meta a, body.dark .v2.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v2 .sig-hair, body.dark .v2.sig-hair { background-color: #3a3a3c !important; }
-    body.dark .v2 .sig-accent, body.dark .v2.sig-accent, body.dark .v2 .sig-accent a, body.dark .v2.sig-accent a { color: #4ade80 !important; }    body.mob .v3 .sig-wrap, body.mob .v3.sig-wrap { width: 100% !important; }
-    body.mob .v3 .sig-inner, body.mob .v3.sig-inner { display: block !important; width: 100% !important; }
-    body.mob .v3 .sig-photo-td, body.mob .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
-    body.mob .v3 .sig-body-td, body.mob .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body.mob .v3 .sig-pad, body.mob .v3.sig-pad { padding: 16px !important; }
-    body.mob .v3 .sig-name, body.mob .v3.sig-name { font-size: 17px !important; }@media (max-width: 620px) {    body .v3 .sig-wrap, body .v3.sig-wrap { width: 100% !important; }
-    body .v3 .sig-inner, body .v3.sig-inner { display: block !important; width: 100% !important; }
-    body .v3 .sig-photo-td, body .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
-    body .v3 .sig-body-td, body .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body .v3 .sig-pad, body .v3.sig-pad { padding: 16px !important; }
-    body .v3 .sig-name, body .v3.sig-name { font-size: 17px !important; }
+.bar-in { display:flex; align-items:center; gap:14px; padding:12px 0; flex-wrap:wrap; }
+.seg { display:inline-flex; background:var(--card); border:1px solid var(--line); border-radius:10px; padding:3px; }
+.seg button {
+  font:inherit; font-size:13px; font-weight:600; color:var(--muted);
+  background:none; border:0; padding:7px 15px; border-radius:7px; cursor:pointer;
+  transition:background .14s ease, color .14s ease;
 }
-    body.dark .v3 .sig-panel, body.dark .v3.sig-panel { background-color: #232325 !important; }
-    body.dark .v3 .sig-name, body.dark .v3.sig-name { color: #f5f5f7 !important; }
-    body.dark .v3 .sig-role, body.dark .v3.sig-role { color: #a1a1a6 !important; }
-    body.dark .v3 .sig-meta, body.dark .v3.sig-meta, body.dark .v3 .sig-meta a, body.dark .v3.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v3 .sig-accent, body.dark .v3.sig-accent, body.dark .v3 .sig-accent a, body.dark .v3.sig-accent a { color: #4ade80 !important; }
-    body.dark .v3 .sig-bar, body.dark .v3.sig-bar { background-color: #4ade80 !important; }
-    body.dark .v3 .sig-hair, body.dark .v3.sig-hair { background-color: #3a3a3c !important; }    body.mob .v4 .sig-wrap, body.mob .v4.sig-wrap { width: 100% !important; }
-    body.mob .v4 .sig-stack, body.mob .v4.sig-stack { display: block !important; width: 100% !important; }
-    body.mob .v4 .sig-photo-td, body.mob .v4.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
-    body.mob .v4 .sig-body-td, body.mob .v4.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body.mob .v4 .sig-name, body.mob .v4.sig-name { font-size: 17px !important; }
-    /* Banner: text over the button instead of beside it */
-    body.mob .v4 .ban-stack, body.mob .v4.ban-stack { display: block !important; width: 100% !important; }
-    body.mob .v4 .ban-copy-td, body.mob .v4.ban-copy-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
-    body.mob .v4 .ban-cta-td, body.mob .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }@media (max-width: 620px) {    body .v4 .sig-wrap, body .v4.sig-wrap { width: 100% !important; }
-    body .v4 .sig-stack, body .v4.sig-stack { display: block !important; width: 100% !important; }
-    body .v4 .sig-photo-td, body .v4.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
-    body .v4 .sig-body-td, body .v4.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
-    body .v4 .sig-name, body .v4.sig-name { font-size: 17px !important; }
-    /* Banner: text over the button instead of beside it */
-    body .v4 .ban-stack, body .v4.ban-stack { display: block !important; width: 100% !important; }
-    body .v4 .ban-copy-td, body .v4.ban-copy-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
-    body .v4 .ban-cta-td, body .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }
+.seg button:hover { color:var(--ink); }
+.seg button[aria-pressed="true"] { background:var(--accent); color:#fff; }
+body.dark .seg button[aria-pressed="true"] { color:#08130c; }
+.count { margin-left:auto; font-size:13px; color:var(--muted); }
+
+/* ---------- jump nav ---------- */
+.nav { display:flex; flex-wrap:wrap; gap:8px; padding:16px 0 4px; scrollbar-width:none; }
+.nav::-webkit-scrollbar { display:none; }
+.nav-chip {
+  flex:0 0 auto; font-size:12.5px; color:var(--ink-2); text-decoration:none;
+  background:var(--card); border:1px solid var(--line); border-radius:9px;
+  padding:8px 13px; white-space:nowrap; transition:border-color .14s, color .14s;
 }
-    body.dark .v4 .sig-bg, body.dark .v4.sig-bg { background-color: #1c1c1e !important; }
-    body.dark .v4 .sig-name, body.dark .v4.sig-name { color: #f5f5f7 !important; }
-    body.dark .v4 .sig-role, body.dark .v4.sig-role { color: #a1a1a6 !important; }
-    body.dark .v4 .sig-meta, body.dark .v4.sig-meta, body.dark .v4 .sig-meta a, body.dark .v4.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v4 .sig-accent, body.dark .v4.sig-accent, body.dark .v4 .sig-accent a, body.dark .v4.sig-accent a { color: #4ade80 !important; }
-    body.dark .v4 .sig-hair, body.dark .v4.sig-hair { background-color: #3a3a3c !important; }
-    body.dark .v4 .ban-panel, body.dark .v4.ban-panel { background-color: #232325 !important; }
-    body.dark .v4 .ban-head, body.dark .v4.ban-head { color: #f5f5f7 !important; }
-    body.dark .v4 .ban-sub, body.dark .v4.ban-sub { color: #a1a1a6 !important; }    body.mob .v5 .sig-wrap, body.mob .v5.sig-wrap { width: 100% !important; }
-    body.mob .v5 .sig-name, body.mob .v5.sig-name { font-size: 17px !important; }
-    body.mob .v5 .sig-label, body.mob .v5.sig-label { width: 58px !important; }
-    body.mob .v5 .sig-legal, body.mob .v5.sig-legal { font-size: 10px !important; }
-    body.mob .v5 .sig-logo, body.mob .v5.sig-logo { width: 168px !important; height: auto !important; }@media (max-width: 620px) {    body .v5 .sig-wrap, body .v5.sig-wrap { width: 100% !important; }
-    body .v5 .sig-name, body .v5.sig-name { font-size: 17px !important; }
-    body .v5 .sig-label, body .v5.sig-label { width: 58px !important; }
-    body .v5 .sig-legal, body .v5.sig-legal { font-size: 10px !important; }
-    body .v5 .sig-logo, body .v5.sig-logo { width: 168px !important; height: auto !important; }
+.nav-chip b { color:var(--muted); font-weight:600; margin-right:6px; font-variant-numeric:tabular-nums; }
+.nav-chip:hover { border-color:var(--accent); color:var(--accent); }
+.nav-chip:hover b { color:var(--accent); }
+
+/* ---------- cards ---------- */
+.grid { padding:26px 0 20px; display:flex; flex-direction:column; gap:22px; }
+.card {
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  box-shadow:var(--shadow); overflow:hidden; scroll-margin-top:78px;
 }
-    body.dark .v5 .sig-bg, body.dark .v5.sig-bg { background-color: #1c1c1e !important; }
-    body.dark .v5 .sig-name, body.dark .v5.sig-name { color: #f5f5f4 !important; }
-    body.dark .v5 .sig-role, body.dark .v5.sig-role { color: #a8a29e !important; }
-    body.dark .v5 .sig-label, body.dark .v5.sig-label { color: #8a8580 !important; }
-    body.dark .v5 .sig-meta, body.dark .v5.sig-meta, body.dark .v5 .sig-meta a, body.dark .v5.sig-meta a { color: #d6d3d1 !important; }
-    body.dark .v5 .sig-accent, body.dark .v5.sig-accent, body.dark .v5 .sig-accent a, body.dark .v5.sig-accent a { color: #f0a04b !important; }
-    body.dark .v5 .sig-hair, body.dark .v5.sig-hair { background-color: #3a3a3c !important; }
-    body.dark .v5 .sig-legal, body.dark .v5.sig-legal { color: #78716c !important; }    body.mob .v6 .sig-wrap, body.mob .v6.sig-wrap { width: 100% !important; }
-    body.mob .v6 .sig-name, body.mob .v6.sig-name { font-size: 16px !important; }
-    body.mob .v6 .sig-meta, body.mob .v6.sig-meta { font-size: 13px !important; }@media (max-width: 620px) {    body .v6 .sig-wrap, body .v6.sig-wrap { width: 100% !important; }
-    body .v6 .sig-name, body .v6.sig-name { font-size: 16px !important; }
-    body .v6 .sig-meta, body .v6.sig-meta { font-size: 13px !important; }
+.card-head { display:flex; align-items:flex-start; gap:16px; padding:20px 22px 18px; }
+.num {
+  flex:0 0 auto; font-size:12px; font-weight:700; letter-spacing:.5px;
+  color:var(--muted); font-variant-numeric:tabular-nums;
+  border:1px solid var(--line); border-radius:8px; padding:6px 9px; margin-top:1px;
 }
-    body.dark .v6 .sig-bg, body.dark .v6.sig-bg { background-color: #1c1c1e !important; }
-    body.dark .v6 .sig-name, body.dark .v6.sig-name { color: #f5f5f7 !important; }
-    body.dark .v6 .sig-role, body.dark .v6.sig-role { color: #a1a1a6 !important; }
-    body.dark .v6 .sig-meta, body.dark .v6.sig-meta, body.dark .v6 .sig-meta a, body.dark .v6.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v6 .sig-accent, body.dark .v6.sig-accent, body.dark .v6 .sig-accent a, body.dark .v6.sig-accent a { color: #4ade80 !important; }
-    body.dark .v6 .sig-bar, body.dark .v6.sig-bar { background-color: #4ade80 !important; }
-    body.dark .v6 .sig-dot, body.dark .v6.sig-dot { color: #5a5a5e !important; }    body.mob .v7 .sig-wrap, body.mob .v7.sig-wrap { width: 100% !important; }
-    body.mob .v7 .sig-barname, body.mob .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
-    body.mob .v7 .sig-bartag, body.mob .v7.sig-bartag { display: none !important; }
-    body.mob .v7 .sig-name, body.mob .v7.sig-name { font-size: 17px !important; }
-    body.mob .v7 .sig-body, body.mob .v7.sig-body { padding: 14px 16px !important; }@media (max-width: 620px) {    body .v7 .sig-wrap, body .v7.sig-wrap { width: 100% !important; }
-    body .v7 .sig-barname, body .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
-    body .v7 .sig-bartag, body .v7.sig-bartag { display: none !important; }
-    body .v7 .sig-name, body .v7.sig-name { font-size: 17px !important; }
-    body .v7 .sig-body, body .v7.sig-body { padding: 14px 16px !important; }
+.head-txt { flex:1 1 auto; min-width:0; }
+.card-head h2 { font-size:16.5px; margin:0 0 4px; letter-spacing:-.3px; font-weight:650; }
+.card-head p { margin:0; font-size:13.5px; line-height:1.55; color:var(--muted); max-width:64ch; }
+.chip {
+  flex:0 0 auto; font-size:11px; font-weight:600; letter-spacing:.4px;
+  padding:5px 11px; border-radius:100px; white-space:nowrap; margin-top:2px;
+  border:1px solid var(--line); color:var(--muted);
 }
-    body.dark .v7 .sig-body, body.dark .v7.sig-body { background-color: #1c1c1e !important; }
-    body.dark .v7 .sig-name, body.dark .v7.sig-name { color: #f5f5f7 !important; }
-    body.dark .v7 .sig-role, body.dark .v7.sig-role { color: #a1a1a6 !important; }
-    body.dark .v7 .sig-meta, body.dark .v7.sig-meta, body.dark .v7 .sig-meta a, body.dark .v7.sig-meta a { color: #d6d6d8 !important; }
-    body.dark .v7 .sig-accent, body.dark .v7.sig-accent, body.dark .v7 .sig-accent a, body.dark .v7.sig-accent a { color: #5eead4 !important; }
-    body.dark .v7 .sig-hair, body.dark .v7.sig-hair { background-color: #3a3a3c !important; }
-    /* Bar stays in the same family on purpose - see the note above */
-    body.dark .v7 .sig-bar, body.dark .v7.sig-bar { background-color: #0f766e !important; }    body.mob .v8 .ad-shell, body.mob .v8.ad-shell { width: 100% !important; }
-    body.mob .v8 .ad-pad, body.mob .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
-    body.mob .v8 .ad-h1, body.mob .v8.ad-h1 { font-size: 24px !important; line-height: 31px !important; }
-    body.mob .v8 .ad-hero, body.mob .v8.ad-hero { width: 100% !important; height: auto !important; }
-    body.mob .v8 .ad-btn, body.mob .v8.ad-btn { width: 100% !important; }
-    body.mob .v8 .ad-step-ic, body.mob .v8.ad-step-ic { width: 40px !important; }@media (max-width: 620px) {    body .v8 .ad-shell, body .v8.ad-shell { width: 100% !important; }
-    body .v8 .ad-pad, body .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
-    body .v8 .ad-h1, body .v8.ad-h1 { font-size: 24px !important; line-height: 31px !important; }
-    body .v8 .ad-hero, body .v8.ad-hero { width: 100% !important; height: auto !important; }
-    body .v8 .ad-btn, body .v8.ad-btn { width: 100% !important; }
-    body .v8 .ad-step-ic, body .v8.ad-step-ic { width: 40px !important; }
+.chip-mail { color:var(--accent); border-color:var(--accent); background:var(--accent-soft); }
+.stage {
+  background:var(--stage); border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
+  padding:34px 22px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  transition:background .18s ease;
 }
-    body.dark .v8 .ad-page, body.dark .v8.ad-page { background-color: #0b0b0d !important; }
-    body.dark .v8 .ad-card, body.dark .v8.ad-card { background-color: #17181b !important; }
-    body.dark .v8 .ad-h1, body.dark .v8.ad-h1 { color: #f5f5f7 !important; }
-    body.dark .v8 .ad-body, body.dark .v8.ad-body { color: #d0d0d4 !important; }
-    body.dark .v8 .ad-muted, body.dark .v8.ad-muted { color: #9a9aa0 !important; }
-    body.dark .v8 .ad-rule, body.dark .v8.ad-rule { background-color: #34343a !important; }
-    body.dark .v8 .ad-note, body.dark .v8.ad-note { background-color: #202127 !important; }
-    body.dark .v8 .ad-foot, body.dark .v8.ad-foot { background-color: #0b0b0d !important; }
-    /* Navy emphasis is invisible on a dark card, and a navy button barely
-       separates from it. Lift the first to white, flip the second to the
-       gold so the CTA still reads as the loudest thing on the screen. */
-    body.dark .v8 .ad-strong, body.dark .v8.ad-strong { color: #f5f5f7 !important; }
-    body.dark .v8 .ad-btn, body.dark .v8.ad-btn { background-color: #e0a80d !important; color: #0f2d52 !important; }    body.mob .v9 .ad-shell, body.mob .v9.ad-shell { width: 100% !important; }
-    body.mob .v9 .ad-pad, body.mob .v9.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
-    body.mob .v9 .ad-h1, body.mob .v9.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
-    body.mob .v9 .ad-card-img, body.mob .v9.ad-card-img { width: 100% !important; height: auto !important; }
-    body.mob .v9 .ad-btn, body.mob .v9.ad-btn { width: 100% !important; }
-    body.mob .v9 .ad-band, body.mob .v9.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }@media (max-width: 620px) {    body .v9 .ad-shell, body .v9.ad-shell { width: 100% !important; }
-    body .v9 .ad-pad, body .v9.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
-    body .v9 .ad-h1, body .v9.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
-    body .v9 .ad-card-img, body .v9.ad-card-img { width: 100% !important; height: auto !important; }
-    body .v9 .ad-btn, body .v9.ad-btn { width: 100% !important; }
-    body .v9 .ad-band, body .v9.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }
+.frame { display:inline-block; min-width:0; box-shadow:0 1px 2px rgba(16,24,20,.06), 0 6px 18px -12px rgba(16,24,20,.30); }
+body.dark .frame { box-shadow:0 1px 2px rgba(0,0,0,.5), 0 8px 22px -14px rgba(0,0,0,.9); }
+/* the campaign email carries its own page background, so it needs no lift */
+.card:last-of-type .frame { box-shadow:none; }
+.card-foot { display:flex; align-items:center; justify-content:space-between; gap:14px; padding:13px 22px; }
+.card-foot code { font-size:12px; color:var(--muted); font-family:ui-monospace,SFMono-Regular,Menlo,monospace; }
+.open { font-size:12.5px; font-weight:600; color:var(--accent); text-decoration:none; white-space:nowrap; }
+.open:hover { text-decoration:underline; }
+
+/* ---------- notes + footer ---------- */
+.note {
+  background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+  padding:20px 22px; font-size:13.5px; line-height:1.62; color:var(--muted); margin:4px 0 0;
 }
-    body.dark .v9 .ad-page, body.dark .v9.ad-page { background-color: #0b0b0d !important; }
-    body.dark .v9 .ad-card, body.dark .v9.ad-card { background-color: #17181b !important; }
-    body.dark .v9 .ad-h1, body.dark .v9.ad-h1 { color: #f5f5f7 !important; }
-    body.dark .v9 .ad-body, body.dark .v9.ad-body { color: #d0d0d4 !important; }
-    body.dark .v9 .ad-muted, body.dark .v9.ad-muted { color: #9a9aa0 !important; }
-    body.dark .v9 .ad-rule, body.dark .v9.ad-rule { background-color: #34343a !important; }
-    body.dark .v9 .ad-note, body.dark .v9.ad-note { background-color: #202127 !important; }
-    body.dark .v9 .ad-strong, body.dark .v9.ad-strong { color: #f5f5f7 !important; }
-    body.dark .v9 .ad-btn, body.dark .v9.ad-btn { background-color: #e0a80d !important; color: #0f2d52 !important; }
+.note b { color:var(--ink-2); font-weight:600; }
+.foot { padding:40px 0 64px; font-size:13.5px; color:var(--muted); line-height:1.7; }
+.foot a { color:var(--ink-2); }
+
+@media (max-width:700px) {
+  .wrap { padding:0 16px; }
+  .hero { padding:44px 0 22px; }
+  .lede { font-size:15.5px; }
+  .bar-in { gap:8px; padding:10px 0; }
+  .seg { flex:1 1 auto; }
+  .seg button { flex:1 1 auto; padding:7px 10px; font-size:12.5px; }
+  .count { display:none; }
+  .card-head { flex-wrap:wrap; padding:16px 16px 14px; gap:12px; }
+  .head-txt { flex:1 1 100%; order:3; }
+  .chip { margin-left:auto; }
+  .stage { padding:22px 14px; }
+  .card-foot { padding:12px 16px; }
+  .nav { flex-wrap:nowrap; overflow-x:auto; }
+}
 </style></head>
 <body>
-<div class="wrap">
-  <h1>HTML email signatures</h1>
-  <p class="lede">Eight hand-coded signatures. Table layout, inline CSS, no builder and no framework
-  anywhere. Clickable phone, email and address throughout. Use the buttons to check light/dark and
-  desktop/mobile.</p>
-  <p class="note">Pozhegu Brothers is an invented company used as a demo brand - the numbers, address
-  and domain are not real. Dark mode here is driven by a class so it works in any browser; in a real
-  client it runs off <code>prefers-color-scheme</code>. Social glyphs are placeholders, swap in the
-  real brand marks before shipping.</p>
 
-  <div class="toolbar">
-    <button id="t-light" aria-pressed="true">Light</button>
-    <button id="t-dark" aria-pressed="false">Dark</button>
-    <button id="t-desk" aria-pressed="true">Desktop</button>
-    <button id="t-mob" aria-pressed="false">Mobile 390px</button>
+<header class="hero wrap">
+  <span class="eyebrow"><span class="dot"></span>Hand-coded, no builder</span>
+  <h1>HTML email signatures<br>that survive Outlook.</h1>
+  <p class="lede">Eight examples, written by hand in tables and inline CSS. Built and checked for
+  Outlook Classic and New Outlook, light and dark, desktop and mobile. Phone numbers, addresses and
+  emails are clickable throughout.</p>
+  <div class="byline">
+    <span>Dard Rezniqi &middot; Software Developer &middot; Prishtina</span>
+    <a href="mailto:dard.rezniqi@gmail.com">dard.rezniqi@gmail.com</a>
+    <a href="https://github.com/dardrezniqi/email-signatures" target="_blank" rel="noopener">Source on GitHub</a>
   </div>
+  <div class="facts">
+    <span class="fact">Table layout, inline CSS</span>
+    <span class="fact">VML buttons for Outlook</span>
+    <span class="fact">Dark-mode logo swaps</span>
+    <span class="fact">Readable with images off</span>
+  </div>
+</header>
 
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>01 &middot; Classic divider</h2>
-        <span class="who">personal</span>
-      </div>
-      <p>Photo, 1px rule, details. The layout most briefs ask for.</p>
-      <code>01-classic-divider.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+<div class="bar">
+  <div class="wrap bar-in">
+    <div class="seg" role="group" aria-label="Colour scheme">
+      <button id="t-light" aria-pressed="true">Light</button>
+      <button id="t-dark" aria-pressed="false">Dark</button>
+    </div>
+    <div class="seg" role="group" aria-label="Viewport">
+      <button id="t-desk" aria-pressed="true">Desktop</button>
+      <button id="t-mob" aria-pressed="false">Mobile 390</button>
+    </div>
+    <span class="count">8 examples</span>
+  </div>
+</div>
+
+<nav class="nav wrap" aria-label="Jump to example"><a class="nav-chip" href="#ex1"><b>01</b> Classic divider</a><a class="nav-chip" href="#ex2"><b>02</b> Stacked logo</a><a class="nav-chip" href="#ex3"><b>03</b> Accent card</a><a class="nav-chip" href="#ex4"><b>04</b> Signature + banner</a><a class="nav-chip" href="#ex5"><b>05</b> Corporate, full</a><a class="nav-chip" href="#ex6"><b>06</b> Minimal, no images</a><a class="nav-chip" href="#ex7"><b>07</b> Reversed header bar</a><a class="nav-chip" href="#ex8"><b>08</b> Acquisition email</a></nav>
+
+<main class="grid wrap">
+      <article class="card" id="ex1">
+        <header class="card-head">
+          <span class="num">01</span>
+          <div class="head-txt">
+            <h2>Classic divider</h2>
+            <p>Photo, a 1px rule, details beside it. The layout most briefs ask for.</p>
+          </div>
+          <span class="chip chip-sig">Personal</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v1 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:470px; max-width:470px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
   <tr>
@@ -332,17 +270,21 @@ body.mob .stage { padding:28px 12px; }
   </tr>
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>02 &middot; Stacked logo</h2>
-        <span class="who">personal</span>
-      </div>
-      <p>Wordmark on top, labelled contact rows. Logo swaps file for dark mode.</p>
-      <code>02-stacked-logo.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>01-classic-divider.html</code>
+          <a class="open" href="01-classic-divider.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex2">
+        <header class="card-head">
+          <span class="num">02</span>
+          <div class="head-txt">
+            <h2>Stacked logo</h2>
+            <p>Wordmark on top, labelled contact rows. The logo swaps file in dark mode.</p>
+          </div>
+          <span class="chip chip-sig">Personal</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v2 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="420"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:420px; max-width:420px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
@@ -416,17 +358,21 @@ body.mob .stage { padding:28px 12px; }
 
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>03 &middot; Accent card</h2>
-        <span class="who">personal</span>
-      </div>
-      <p>Tinted panel, solid accent bar. No border-radius, on purpose.</p>
-      <code>03-accent-card.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>02-stacked-logo.html</code>
+          <a class="open" href="02-stacked-logo.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex3">
+        <header class="card-head">
+          <span class="num">03</span>
+          <div class="head-txt">
+            <h2>Accent card</h2>
+            <p>Tinted panel with a solid accent bar. Square corners, on purpose.</p>
+          </div>
+          <span class="chip chip-sig">Personal</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v3 sig-wrap" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:470px; max-width:470px; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
   <tr>
@@ -505,17 +451,21 @@ body.mob .stage { padding:28px 12px; }
   </tr>
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>04 &middot; Signature + banner</h2>
-        <span class="who">personal</span>
-      </div>
-      <p>Promo strip with a VML/HTML button. The &quot;email ad&quot; variant.</p>
-      <code>04-signature-banner.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>03-accent-card.html</code>
+          <a class="open" href="03-accent-card.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex4">
+        <header class="card-head">
+          <span class="num">04</span>
+          <div class="head-txt">
+            <h2>Signature + banner</h2>
+            <p>A promo strip under the signature, with a bulletproof VML/HTML button.</p>
+          </div>
+          <span class="chip chip-sig">Personal</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v4 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:470px; max-width:470px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
@@ -611,17 +561,21 @@ body.mob .stage { padding:28px 12px; }
 
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>05 &middot; Corporate, full</h2>
-        <span class="who">Pozhegu Brothers (mock)</span>
-      </div>
-      <p>Logo, department, landline + mobile, socials, legal footer.</p>
-      <code>05-pozhegu-corporate.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>04-signature-banner.html</code>
+          <a class="open" href="04-signature-banner.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex5">
+        <header class="card-head">
+          <span class="num">05</span>
+          <div class="head-txt">
+            <h2>Corporate, full</h2>
+            <p>Logo, department, landline and mobile split, social row, legal footer.</p>
+          </div>
+          <span class="chip chip-sig">Pozhegu Brothers</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v5 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="500"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:500px; max-width:500px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
@@ -732,17 +686,21 @@ body.mob .stage { padding:28px 12px; }
 
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>06 &middot; Minimal, no images</h2>
-        <span class="who">personal</span>
-      </div>
-      <p>Zero images. Cannot break, cannot be blocked, 1.5 KB.</p>
-      <code>06-minimal-text.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>05-pozhegu-corporate.html</code>
+          <a class="open" href="05-pozhegu-corporate.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex6">
+        <header class="card-head">
+          <span class="num">06</span>
+          <div class="head-txt">
+            <h2>Minimal, no images</h2>
+            <p>Zero images, about 1.5 KB. Nothing to host, nothing that can break.</p>
+          </div>
+          <span class="chip chip-sig">Personal</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v6 sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="420"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:420px; max-width:420px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
   <tr>
@@ -778,17 +736,21 @@ body.mob .stage { padding:28px 12px; }
   </tr>
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>07 &middot; Reversed header bar</h2>
-        <span class="who">Pozhegu Brothers (mock)</span>
-      </div>
-      <p>White on brand fill. The riskiest thing to put in a signature.</p>
-      <code>07-header-bar.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>06-minimal-text.html</code>
+          <a class="open" href="06-minimal-text.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex7">
+        <header class="card-head">
+          <span class="num">07</span>
+          <div class="head-txt">
+            <h2>Reversed header bar</h2>
+            <p>White on a solid brand fill, the riskiest thing to put in a signature.</p>
+          </div>
+          <span class="chip chip-sig">Pozhegu Brothers</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v7 sig-wrap" role="presentation" cellpadding="0" cellspacing="0" border="0" width="480"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:480px; max-width:480px; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
 
@@ -861,181 +823,22 @@ body.mob .stage { padding:28px 12px; }
 
 </table>
 </div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>08 &middot; Email ad / campaign</h2>
-        <span class="who">Banka Dardania (mock)</span>
-      </div>
-      <p>600px marketing email to existing customers. Preheader, hero, three steps, CTA.</p>
-      <code>08-banka-dardania-ad.html</code>
-    </header>
-    <div class="stage"><div class="frame">
+        <footer class="card-foot">
+          <code>07-header-bar.html</code>
+          <a class="open" href="07-header-bar.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article>
+      <article class="card" id="ex8">
+        <header class="card-head">
+          <span class="num">08</span>
+          <div class="head-txt">
+            <h2>Acquisition email</h2>
+            <p>600px campaign email: offer band, product shot, benefit ticks, one CTA.</p>
+          </div>
+          <span class="chip chip-mail">Banka Dardania</span>
+        </header>
+        <div class="stage"><div class="frame">
 <table class="v8 ad-page" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
-       style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; background-color:#eceef1;">
-  <tr>
-    <td align="center" style="padding:24px 12px;">
-
-      <table class="ad-shell ad-card" role="presentation" cellpadding="0" cellspacing="0" border="0" width="600"
-             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:600px; max-width:600px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:26px 34px 20px 34px;">
-            <img class="swap" data-light="data:image/png;base64,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" data-dark="data:image/png;base64,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" src="data:image/png;base64,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"
-                   width="170" height="44" alt="Banka Dardania"
-                   style="display:block; width:170px; height:44px; border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic;">
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td style="padding:0; font-size:0; line-height:0;">
-            <img class="ad-hero" src="data:image/png;base64,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"
-                 width="600" height="240" alt="Pagesat me nje prekje ne Banka Dardania Mobile"
-                 style="display:block; width:600px; max-width:100%; height:auto; border:0; outline:none; text-decoration:none; -ms-interpolation-mode:bicubic;">
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:30px 34px 0 34px;">
-            <div class="ad-h1" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:27px; line-height:34px; mso-line-height-rule:exactly; font-weight:700; color:#0f2d52; letter-spacing:-0.4px;">
-              Paguaj faturat per 30 sekonda
-            </div>
-            <div class="ad-body" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:23px; mso-line-height-rule:exactly; color:#4a4a52; padding-top:9px;">
-              Regjistroje faturen njehere ne Banka Dardania Mobile. Pastaj paguaje me nje prekje, cdo muaj.
-            </div>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:24px 34px 0 34px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse;">
-              <tr><td class="ad-rule" height="1" style="height:1px; font-size:0; line-height:0; background-color:#e2e4e8;">&nbsp;</td></tr>
-            </table>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:22px 34px 0 34px;">
-            <div class="ad-muted" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:12px; line-height:18px; mso-line-height-rule:exactly; color:#8a8a92; text-transform:uppercase; letter-spacing:1.2px; font-weight:700;">
-              Ja se si
-            </div>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:14px 34px 0 34px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
-              <tr>
-                <td class="ad-step-ic" valign="top" width="44" style="width:44px; padding:0 16px 18px 0;">
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABxlTA0AAAB4UlEQVR4nO3dwVXCQBRA0UmOW3ugA6uwB3pxbS/2YBV2YA8UgKt4OJDJTMa8/BHe20KIXD/JLAIZUmPfH8/n1m3/Y4fjaWjZbtVGj4aaaw121ROFna8Geiw9Qdx8NTaLwOKWKxllgcWtb8lqFljc9eXMboDFbW/Obiw9wdZ1bTjmHrD2Li2LyzT7W2NKTi/RZOoEwwkMN3h4YHOC4QSGExjuKfoPSCmll/dX7LW/3j6x164p9CRHwl4XBR12iNgTN2J/UyHAUW82Yr+e5OB2B46a3qj9O8FwXSzTprY800d/Uqa6meCtl1HR69+pLoApjB6QuwC+5wSGExhOYDiB4QSGExhOYDiB4QSGExhOYDiB4QSGExhOYDiB4QSGExhOYDiB4QSGExhOYDiB4QSGExhOYDiB4boApq7l7eEa4S6AU9oeowfclDq7wr0XlC3rZoLvNYHhBIYTGE5gOIHhdgeO/mrV3vt3guFCgKOmOGK/YRO895uN+qd28btp/maPNedJDk5guLH1DidW7nA8DU4wnMBwY0rtN0KyfJOpEwz3C+wUb9el5Zh7wNq6Nrw5RIjc3pzd7DFY5PXlzLInOZHrW7JaXEWIXK5kVFymiZyvxsabpja0+U1T53o07NZP8g/KYYzPitMZDQAAAABJRU5ErkJggg==" width="44" height="44" alt="1."
-                       style="display:block; width:44px; height:44px; border:0; outline:none; text-decoration:none;">
-                </td>
-                <td class="ad-body" valign="top" style="padding:0 0 18px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:22px; mso-line-height-rule:exactly; color:#4a4a52;">
-                  <span class="ad-strong" style="font-weight:700; color:#0f2d52;">Hapni aplikacionin</span> dhe zgjidhni <span class="ad-strong" style="font-weight:700; color:#0f2d52;">Pagesat</span>.
-                </td>
-              </tr>
-              <tr>
-                <td class="ad-step-ic" valign="top" width="44" style="width:44px; padding:0 16px 18px 0;">
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABxlTA0AAACY0lEQVR4nO2dy3GDMBRFhSbb9OAOUkV6cC9ep5f04CrcQXpwAcmKDIP1t+774Hu2gPM4ujwk7AlLGOTn+/139FiPnM73ZeS4roNeTWqOHtlNO1JsmhbRsbYD5eZpcVMUTLl1ao6ygim3nZKrpGDK7Sfn7EEw5Y6TchdrO5A+9g5jbgMZZ+uyOk0jzxFDYHoRrE6ZYDAUDGZhe8DCBIOhYDAUDMad4I+vT+0SunAn2BuuBK/p9ZRiV4I94kawp9RucSN4jxfhbgV7wYVgL2lN4UJwDg/izQv2ILGEecE1rA+AacHW5bVgWvAROIRgy0k3K9iytB7MCj4KJgWPpNdq4qd+6Wn1JHu5Xa7TPmtqgmcWpsXsc5jeIjxLRtQO/V2El5aBDAX0Juchzega4bMIy5IlahOZplmULFWT2DzYkmTJWkQXGhYkS9eg9utK6RmG1uCqLZUlT1jzylF9FiFx4tptSf1hD1KAttwQDAg+OuqCkTc7C0t1dcFHh4LBUDAYVcESPVK7DzPBYCgYzJt2AT1sFw7al34ragnuFbRflfWs0jQHw3yCSyLXbZbTbLoHt6bUwjOHHCrPg2uJe0ZY6bM1BsJUgm+X69MSrKXZjOCZYmYM1CzUBSNlWJAs3oO3PVJSwPp3paWrJFjjEtZKM/9nDxj1Hnx0KBgMBYOhYDAUDIaCwVAwmDj6hhNS53S+L0wwGAoGE0MYfxESybM6ZYLB/AtmiuexdRlzG8gYe4cPLYKSx0m5S/ZgSu4n5yx7k6PkdkquirMISq5Tc1SdplFynhY3fGnqANNfmpri1WSPXsl/g9rjBOfZspAAAAAASUVORK5CYII=" width="44" height="44" alt="2."
-                       style="display:block; width:44px; height:44px; border:0; outline:none; text-decoration:none;">
-                </td>
-                <td class="ad-body" valign="top" style="padding:0 0 18px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:22px; mso-line-height-rule:exactly; color:#4a4a52;">
-                  <span class="ad-strong" style="font-weight:700; color:#0f2d52;">Ruajeni faturen</span> qe paguani cdo muaj. Vetem njehere, dhe mbetet aty.
-                </td>
-              </tr>
-              <tr>
-                <td class="ad-step-ic" valign="top" width="44" style="width:44px; padding:0 16px 0 0;">
-                  <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFgAAABYCAYAAABxlTA0AAAC8ElEQVR4nO2dy1XEMAxFPTls6YEOqIIe6GXW9EIPVEEH9EABsDInJ+OfZD1LGd5dziR2fKPInyQnl6Tk6/3xR7vvGXl6/b5o9hPt9N+k1pDIHtqQYsuMiN56G1BunRE3TcGU26fnqCqYcsdpuSoKplw5NWc3gilXT8nd1tuAyDg63Gp/ED17l91hGpljS4nRiyA7ZQSDefA+gBbPby/D235eP4BHoucSKT1IhPaIItxdsKXUGp6y3QSvEHvEQ/RywR5ij6wUvVSwVK5EBLLsGZYJHhVg0fCVdfWACx5pbKuh3vvPAhXca1ypYRY5WlMuSjJMsLRBiM5PWgdCMkRwqyErxM7UaS3ZfC0imtxSPbM5W8KytYh9o6zXGEbKy9vk8j6vH0tOsGmKqB2wVO7MZSotf+SYZzATbCFXO6qYHTUgJZsInpVrNVyTlrNC8pIFd2nHp82NpX1XdmglpgXPnPljBFk1+FiW9FiOZc0AiWDppYeKpBHJ0hMhBdLJ5QNdMaqwHjUch3OzLF+LmOn4NPWN1otai4BNNHqRZTXj22/bmjw8v73c5x2NWo6zzs3astHSXe7JoTq+lTO0UcI8eGIxqkCPCDS43rYvXabWC+6rUkEN9+ci9lhOp6NEcJgU0aImS/q7B6EiOCPNpd5poEVIwffEKVLEmaFgMBQMhoLBUDAYCgZDwWBcBVveh/Oso0WY5UrELGzlnYsaYVKEdZRFeFUhJSfBqFvkvXI81irCRHBmVnKUyM24CUY8cRNxfdh9Ne3s72D0cBecEvay9l4jDpGDURK85aYUJIL3oN4y8iKc4IzV88HehBWcid6J9Qgv+OyE6OTuGQoGQ8FgKBgMBYOhYDAUDIaCwVAwGAoGQ8FgNu0XTkifp9fvCyMYDAWD2VLSfwiJ1MlOGcFg/gQziu3Yu9xqfxAdR4c3KYKS9ZTcFXMwJcupOat2cpQ8TstVcxRByX16jrrDNEquM+KGH01VYP7R1BL/Tbb2Sv4FC7DUWT4De7gAAAAASUVORK5CYII=" width="44" height="44" alt="3."
-                       style="display:block; width:44px; height:44px; border:0; outline:none; text-decoration:none;">
-                </td>
-                <td class="ad-body" valign="top" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:22px; mso-line-height-rule:exactly; color:#4a4a52;">
-                  <span class="ad-strong" style="font-weight:700; color:#0f2d52;">Konfirmoni</span> me PIN ose me gjurme gishti. Kaq.
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad ad-note" bgcolor="#f5f7fa" style="background-color:#f5f7fa; padding:18px 34px; margin-top:0;">
-            <div class="ad-body" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:23px; mso-line-height-rule:exactly; color:#4a4a52;">
-              Nuk shkruani me numrin e llogarise dhe as shumen. Aplikacioni i mban gati.
-            </div>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" align="left" style="padding:26px 34px 0 34px;">
-            
-            
-            <a class="ad-btn" href="https://REPLACE-ME.com/app"
-               style="display:inline-block; background-color:#0f2d52; color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:15px; line-height:48px; font-weight:700; text-align:center; text-decoration:none; width:230px; height:48px; mso-hide:all;">Shkarko aplikacionin</a>
-            
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad" style="padding:22px 34px 30px 34px;">
-            <div class="ad-muted" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:20px; mso-line-height-rule:exactly; color:#8a8a92;">
-              P.S. Nese e keni tashme aplikacionin, perditesojeni nga App Store ose Google Play per te pare seksionin e ri Pagesat.
-            </div>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad ad-note" bgcolor="#f5f7fa" align="center" style="background-color:#f5f7fa; padding:20px 34px;">
-            <table role="presentation" cellpadding="0" cellspacing="0" border="0" align="center" style="border-collapse:collapse;">
-              <tr>
-                <td style="padding:0 6px;"><a href="https://REPLACE-ME.com/li"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAACMUlEQVR4nO2bu0vDQBzHv1cffSho0UUExQqKg6MiVgRBxNm9uLi4O/Vv0NlV0dnRqZODoA6CCoLgaxAfVaGtUKzWOl1t0jwuzcXLXfrd0kvuvp98735JSErgobrGlyos++XO94hXHrh2zApkJ57AXDriBaYXD1BXHXgFppcb0IYO/C8wvRoBDTk9QBRco2MznxGRYEZiTZMpQb/BAeyebAH9CEfF4s0S0M9wVHYeTQFlgKOy8uq4isomQ0CZ0qMy81wHKCMclZH3YE1RmdOj0jMEJ0EV0qOqZVE+QQLwSe80nUGI/HWT2prE2UOX225dKXe+R5RPsAkou4hK1dNIrbw6sisyRu0vhTBWkreYGX5Fb2cJH5+tOLmPY/NgGDevHVx8cQN0qunEG5an7hBrL1d/i8dKWBh7RjLxhtT2BK6zna7HEbYGV2evNXC16gh/Y23+iss4whIEgJ2jQeweD+CnQpBevMTcSLbaNjX0jmhbGcWvFldjCEvw8KYH65kRPOUjeCmEsZEZ1bSHSAX93UXX4wgD3L/o02w/58N1+0RNprATCQN8zEU021/leis8XpwIAyzpgLy6GCt/JxPy8uWjaDWfJlSQ8oDV9afaUwWtLconWAVUqZrWsgQnQUCNFPUMwUoQkDtFI++GCcoIaeY5eFOUSqYUrbxaJigDpJ1H2ynqZ0gWb0xr0I+QrJ4cGxd9U+70ZDuuoiLTbGTs5gexLFL2k2a9lP0o3Ux++FvBL/L+0cIRpBqYAAAAAElFTkSuQmCC" width="28" height="28" alt="LinkedIn" style="display:block; width:28px; height:28px; border:0;"></a></td>
-                <td style="padding:0 6px;"><a href="https://REPLACE-ME.com/ig"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAADdklEQVR4nO2bXUhTYRzGn3Nccza3SbFpK/BixgyxDCsqWx8qGHQRLAiCgsLo8zK6KKLL7uquguoiIbrLIAgCV2k3eRNWhk5XJqXpTg6dbroP3bqIYzvb2XZ29p6zc7aeu/fsPe///zvP+7WzdxQklKnRGRdSzz/YTUmVA9GGhQJlE0lgIg2RAksWCdC8GpAKLFn5gIq6US6wZIkBpXO9oVBwYmMLfiKFBOOTUDcFOag0OEB4TlkBlQjHSkhuGQGVDMcqW45pAdUAxypTrjnPomoTL6Ca3GOVLucUQDXCseLLvbS6qJrdY5XMoCHV8MB1F2jqX9unHu/C50kTqeZFa9XBYnCPVSJLaYzBYnKPFctEbAxuv9VOqimiknWSMeiWcbblO1rtDGqMIQTDGgz8rEJXfy1GGQPeX33DqX/swR58/V2ZV17EALNpU9USHp78AKtpafWadm0ErXYGh+wM7vXZJIlLyzH+yug4bh/7xIFLFAXg8oFvxOOaGp1xWRzs2OJFfc0C59rLLxtw/50N8yENWu0MrnW4Ua6JEY8tC2BbvZdTHvfpceNFA2Lxv28dnn/cCIshjEv7ybsoyzq42RLglHs95lU4Vi63RZLYsgDqtcucsi+gTanjC5ZLElsWwGCEOxLW6SMpddbrw5LElgXQw3DXMkfdTMr7yjY7I0lsWQB7hqs55TpzADePDMFqWoJRF8XRrb/QuXdcktiyzKI97mqcmR7nLBXOpkk4myYljy2LgysxCleebcOUX8f7eRzAXZ6dDIkdCC3lj4+JmpirwPFHu9HVX4uJuQpEV2jMLmrxdtSM01074XJXp9wTCOfXwfyD3RQFKOPr0gXHGC4mLPTBsAaOOwexEhP//P2D3ZRsm21H3QxO7PiBV0M1GJoyYmpeh8gyDasphMMN0zi3b4xT3zViyQuOlWyAa8piaLH50GLzZa07u6jlHZNiRAPSHgLIVR6mEp1PmuGd55+QhIplks3BPo8Z5582o73ei0arHxZDGKaKKELRMngXyjE8bcTrEQt6R81EuiYrTktKmGxIKLFHlsZbNVZKGotilcxQWg4C6naRL3deB9UImS7n0uuirNTkYqZcMzqoBshsOWbtokqGFJKboDGoREihOeWceKG3c7k+7Jxn0UK6KSb2/wOxQlS0R5qTVbSH0tNJCX8r+APO5UF5pgUc9gAAAABJRU5ErkJggg==" width="28" height="28" alt="Instagram" style="display:block; width:28px; height:28px; border:0;"></a></td>
-                <td style="padding:0 6px;"><a href="https://REPLACE-ME.com/fb"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAA4CAYAAACohjseAAAB/UlEQVR4nO2bvUvDQBjG36QtbQc/wK/JQQd1UQcnRYQW3JycnByc3JzEv0AQ3F0d3bIrCM7q1kFQhELHDFKkUmtqHOSquXxd0nuTu0ue8UjufX557i5pc9EAUWPLuzbLce2GoWF54NoxK1CYeAJz6YgXGC0eoEN1gAVGaxjQWCcmBUYrDqge9YS04OLWZr4iaYJ5iTVNpgRFgwNg9xQKKCIcEYu3QECR4YjCPPoCygBHFOQ18ioqmzwBZUqPyM+zC1BGOCIv79kaojKnR0QzKJ/g4HEHO71KqQ97ay2oLZowN9GBkYoFuvZX8ux6Ca4eZ7nVI49yRW49Bmi8+gWX+w8wP9lJopxDOgB+eodbr4nDEaZEEqwvmK62Y2MF7p6noNfHXQbQAXXNhunRrqPNfC/DzdMMdunf+tgFSgXb9aOzayW3eGtY8+9gowlHtRfm49fP6/DRK3D3ofx9UHlAtCFKVC5+w/3JraOt9VaFnYtNzLIDKZ9gDii7ckDZpT4g5svHtNVuGJr6CaZtAFvZAFRxHib2n8ynpcPq6TZ2GV8NhqhKKf5nycYcJFIhRZohWwkCyJ2il3fPBGWE9POcvSFKJFOKQV4DE5QBMsxj6BAVGZLFG9McFBGS1VNk42m/5o56sSOvommmGad2viGWRcpuaaal7KZ0P4nwWcEPbVmz67rSVfUAAAAASUVORK5CYII=" width="28" height="28" alt="Facebook" style="display:block; width:28px; height:28px; border:0;"></a></td>
-              </tr>
-            </table>
-          </td>
-        </tr>
-
-        
-        <tr>
-          <td class="ad-pad ad-foot" style="padding:20px 34px 26px 34px;">
-            <div class="ad-muted" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:11px; line-height:17px; mso-line-height-rule:exactly; color:#9a9aa2;">
-              Banka Dardania sh.a. &middot; Rr. Bill Clinton 42, 10000 Prishtina, Kosove.
-              Ky email eshte derguar sepse jeni klient i Banka Dardania.
-              <a href="https://REPLACE-ME.com/unsubscribe" style="color:#9a9aa2; text-decoration:underline;">Cregjistrohu</a>.
-              <br><br>
-              Kompani e sajuar, e perdorur vetem si shembull dizajni. Nuk eshte bank e vertete dhe nuk ofron asnje sherbim.
-            </div>
-          </td>
-        </tr>
-
-      </table>
-
-    </td>
-  </tr>
-</table>
-</div></div>
-  </section>
-  <section class="card">
-    <header>
-      <div class="hrow">
-        <h2>09 &middot; Acquisition email</h2>
-        <span class="who">Banka Dardania (mock)</span>
-      </div>
-      <p>Offer band, product shot, benefit ticks, one loud CTA, deadline.</p>
-      <code>09-banka-dardania-signup.html</code>
-    </header>
-    <div class="stage"><div class="frame">
-<table class="v9 ad-page" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
        style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; background-color:#eceef1;">
   <tr>
     <td align="center" style="padding:24px 12px;">
@@ -1163,8 +966,172 @@ body.mob .stage { padding:28px 12px; }
   </tr>
 </table>
 </div></div>
-  </section>
+        <footer class="card-foot">
+          <code>08-banka-dardania-signup.html</code>
+          <a class="open" href="08-banka-dardania-signup.html" target="_blank" rel="noopener">Open standalone &#8599;</a>
+        </footer>
+      </article></main>
+
+<div class="wrap">
+  <p class="note"><b>On the demo brands.</b> Pozhegu Brothers and Banka Dardania are invented companies.
+  No real institution, product, offer, phone number, address or domain appears anywhere, and every link
+  in the campaign email points back to this page rather than to a bank. The social glyphs and the
+  monogram are placeholders, to be swapped for real artwork before anything ships.</p>
 </div>
+
+<footer class="foot wrap">
+  Dark mode here is driven by a class so it works in any browser; in a real client it runs off
+  <code>prefers-color-scheme</code>. Below 700px the examples switch to their own mobile rules
+  automatically &mdash; the toggle is there so the same thing can be checked from a desktop.<br>
+  <a href="mailto:dard.rezniqi@gmail.com">dard.rezniqi@gmail.com</a> &middot;
+  <a href="https://github.com/dardrezniqi" target="_blank" rel="noopener">github.com/dardrezniqi</a>
+</footer>
+
+<style>  body.mob .v1 .sig-wrap, body.mob .v1.sig-wrap { width: 100% !important; }
+  body.mob .v1 .sig-stack, body.mob .v1.sig-stack { display: block !important; width: 100% !important; }
+  body.mob .v1 .sig-photo-td, body.mob .v1.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
+  body.mob .v1 .sig-rule-td, body.mob .v1.sig-rule-td { display: none !important; }
+  body.mob .v1 .sig-body-td, body.mob .v1.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body.mob .v1 .sig-name, body.mob .v1.sig-name { font-size: 17px !important; }
+  body.mob .v1 .sig-meta, body.mob .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }@media (max-width: 700px) {  body .v1 .sig-wrap, body .v1.sig-wrap { width: 100% !important; }
+  body .v1 .sig-stack, body .v1.sig-stack { display: block !important; width: 100% !important; }
+  body .v1 .sig-photo-td, body .v1.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
+  body .v1 .sig-rule-td, body .v1.sig-rule-td { display: none !important; }
+  body .v1 .sig-body-td, body .v1.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body .v1 .sig-name, body .v1.sig-name { font-size: 17px !important; }
+  body .v1 .sig-meta, body .v1.sig-meta { font-size: 13px !important; line-height: 20px !important; }
+}
+  body.dark .v1 .sig-bg, body.dark .v1.sig-bg { background-color: #1c1c1e !important; }
+  body.dark .v1 .sig-name, body.dark .v1.sig-name { color: #f5f5f7 !important; }
+  body.dark .v1 .sig-role, body.dark .v1.sig-role { color: #a1a1a6 !important; }
+  body.dark .v1 .sig-meta, body.dark .v1.sig-meta, body.dark .v1 .sig-meta a, body.dark .v1.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v1 .sig-accent, body.dark .v1.sig-accent, body.dark .v1 .sig-accent a, body.dark .v1.sig-accent a { color: #4ade80 !important; }
+  body.dark .v1 .sig-rule, body.dark .v1.sig-rule { background-color: #3a3a3c !important; }
+  body.dark .v1 .sig-hair, body.dark .v1.sig-hair { background-color: #3a3a3c !important; }  body.mob .v2 .sig-wrap, body.mob .v2.sig-wrap { width: 100% !important; }
+  body.mob .v2 .sig-name, body.mob .v2.sig-name { font-size: 17px !important; }
+  body.mob .v2 .sig-meta, body.mob .v2.sig-meta { font-size: 13px !important; }
+  body.mob .v2 .sig-label, body.mob .v2.sig-label { width: 46px !important; }@media (max-width: 700px) {  body .v2 .sig-wrap, body .v2.sig-wrap { width: 100% !important; }
+  body .v2 .sig-name, body .v2.sig-name { font-size: 17px !important; }
+  body .v2 .sig-meta, body .v2.sig-meta { font-size: 13px !important; }
+  body .v2 .sig-label, body .v2.sig-label { width: 46px !important; }
+}
+  body.dark .v2 .sig-bg, body.dark .v2.sig-bg { background-color: #1c1c1e !important; }
+  body.dark .v2 .sig-name, body.dark .v2.sig-name { color: #f5f5f7 !important; }
+  body.dark .v2 .sig-role, body.dark .v2.sig-role { color: #a1a1a6 !important; }
+  body.dark .v2 .sig-label, body.dark .v2.sig-label { color: #8e8e93 !important; }
+  body.dark .v2 .sig-meta, body.dark .v2.sig-meta, body.dark .v2 .sig-meta a, body.dark .v2.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v2 .sig-hair, body.dark .v2.sig-hair { background-color: #3a3a3c !important; }
+  body.dark .v2 .sig-accent, body.dark .v2.sig-accent, body.dark .v2 .sig-accent a, body.dark .v2.sig-accent a { color: #4ade80 !important; }  body.mob .v3 .sig-wrap, body.mob .v3.sig-wrap { width: 100% !important; }
+  body.mob .v3 .sig-inner, body.mob .v3.sig-inner { display: block !important; width: 100% !important; }
+  body.mob .v3 .sig-photo-td, body.mob .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+  body.mob .v3 .sig-body-td, body.mob .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body.mob .v3 .sig-pad, body.mob .v3.sig-pad { padding: 16px !important; }
+  body.mob .v3 .sig-name, body.mob .v3.sig-name { font-size: 17px !important; }@media (max-width: 700px) {  body .v3 .sig-wrap, body .v3.sig-wrap { width: 100% !important; }
+  body .v3 .sig-inner, body .v3.sig-inner { display: block !important; width: 100% !important; }
+  body .v3 .sig-photo-td, body .v3.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+  body .v3 .sig-body-td, body .v3.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body .v3 .sig-pad, body .v3.sig-pad { padding: 16px !important; }
+  body .v3 .sig-name, body .v3.sig-name { font-size: 17px !important; }
+}
+  body.dark .v3 .sig-panel, body.dark .v3.sig-panel { background-color: #232325 !important; }
+  body.dark .v3 .sig-name, body.dark .v3.sig-name { color: #f5f5f7 !important; }
+  body.dark .v3 .sig-role, body.dark .v3.sig-role { color: #a1a1a6 !important; }
+  body.dark .v3 .sig-meta, body.dark .v3.sig-meta, body.dark .v3 .sig-meta a, body.dark .v3.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v3 .sig-accent, body.dark .v3.sig-accent, body.dark .v3 .sig-accent a, body.dark .v3.sig-accent a { color: #4ade80 !important; }
+  body.dark .v3 .sig-bar, body.dark .v3.sig-bar { background-color: #4ade80 !important; }
+  body.dark .v3 .sig-hair, body.dark .v3.sig-hair { background-color: #3a3a3c !important; }  body.mob .v4 .sig-wrap, body.mob .v4.sig-wrap { width: 100% !important; }
+  body.mob .v4 .sig-stack, body.mob .v4.sig-stack { display: block !important; width: 100% !important; }
+  body.mob .v4 .sig-photo-td, body.mob .v4.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+  body.mob .v4 .sig-body-td, body.mob .v4.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body.mob .v4 .sig-name, body.mob .v4.sig-name { font-size: 17px !important; }
+    /* Banner: text over the button instead of beside it */
+  body.mob .v4 .ban-stack, body.mob .v4.ban-stack { display: block !important; width: 100% !important; }
+  body.mob .v4 .ban-copy-td, body.mob .v4.ban-copy-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
+  body.mob .v4 .ban-cta-td, body.mob .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }@media (max-width: 700px) {  body .v4 .sig-wrap, body .v4.sig-wrap { width: 100% !important; }
+  body .v4 .sig-stack, body .v4.sig-stack { display: block !important; width: 100% !important; }
+  body .v4 .sig-photo-td, body .v4.sig-photo-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+  body .v4 .sig-body-td, body .v4.sig-body-td { display: block !important; width: 100% !important; padding: 0 !important; }
+  body .v4 .sig-name, body .v4.sig-name { font-size: 17px !important; }
+    /* Banner: text over the button instead of beside it */
+  body .v4 .ban-stack, body .v4.ban-stack { display: block !important; width: 100% !important; }
+  body .v4 .ban-copy-td, body .v4.ban-copy-td { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
+  body .v4 .ban-cta-td, body .v4.ban-cta-td { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }
+}
+  body.dark .v4 .sig-bg, body.dark .v4.sig-bg { background-color: #1c1c1e !important; }
+  body.dark .v4 .sig-name, body.dark .v4.sig-name { color: #f5f5f7 !important; }
+  body.dark .v4 .sig-role, body.dark .v4.sig-role { color: #a1a1a6 !important; }
+  body.dark .v4 .sig-meta, body.dark .v4.sig-meta, body.dark .v4 .sig-meta a, body.dark .v4.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v4 .sig-accent, body.dark .v4.sig-accent, body.dark .v4 .sig-accent a, body.dark .v4.sig-accent a { color: #4ade80 !important; }
+  body.dark .v4 .sig-hair, body.dark .v4.sig-hair { background-color: #3a3a3c !important; }
+  body.dark .v4 .ban-panel, body.dark .v4.ban-panel { background-color: #232325 !important; }
+  body.dark .v4 .ban-head, body.dark .v4.ban-head { color: #f5f5f7 !important; }
+  body.dark .v4 .ban-sub, body.dark .v4.ban-sub { color: #a1a1a6 !important; }  body.mob .v5 .sig-wrap, body.mob .v5.sig-wrap { width: 100% !important; }
+  body.mob .v5 .sig-name, body.mob .v5.sig-name { font-size: 17px !important; }
+  body.mob .v5 .sig-label, body.mob .v5.sig-label { width: 58px !important; }
+  body.mob .v5 .sig-legal, body.mob .v5.sig-legal { font-size: 10px !important; }
+  body.mob .v5 .sig-logo, body.mob .v5.sig-logo { width: 168px !important; height: auto !important; }@media (max-width: 700px) {  body .v5 .sig-wrap, body .v5.sig-wrap { width: 100% !important; }
+  body .v5 .sig-name, body .v5.sig-name { font-size: 17px !important; }
+  body .v5 .sig-label, body .v5.sig-label { width: 58px !important; }
+  body .v5 .sig-legal, body .v5.sig-legal { font-size: 10px !important; }
+  body .v5 .sig-logo, body .v5.sig-logo { width: 168px !important; height: auto !important; }
+}
+  body.dark .v5 .sig-bg, body.dark .v5.sig-bg { background-color: #1c1c1e !important; }
+  body.dark .v5 .sig-name, body.dark .v5.sig-name { color: #f5f5f4 !important; }
+  body.dark .v5 .sig-role, body.dark .v5.sig-role { color: #a8a29e !important; }
+  body.dark .v5 .sig-label, body.dark .v5.sig-label { color: #8a8580 !important; }
+  body.dark .v5 .sig-meta, body.dark .v5.sig-meta, body.dark .v5 .sig-meta a, body.dark .v5.sig-meta a { color: #d6d3d1 !important; }
+  body.dark .v5 .sig-accent, body.dark .v5.sig-accent, body.dark .v5 .sig-accent a, body.dark .v5.sig-accent a { color: #f0a04b !important; }
+  body.dark .v5 .sig-hair, body.dark .v5.sig-hair { background-color: #3a3a3c !important; }
+  body.dark .v5 .sig-legal, body.dark .v5.sig-legal { color: #78716c !important; }  body.mob .v6 .sig-wrap, body.mob .v6.sig-wrap { width: 100% !important; }
+  body.mob .v6 .sig-name, body.mob .v6.sig-name { font-size: 16px !important; }
+  body.mob .v6 .sig-meta, body.mob .v6.sig-meta { font-size: 13px !important; }@media (max-width: 700px) {  body .v6 .sig-wrap, body .v6.sig-wrap { width: 100% !important; }
+  body .v6 .sig-name, body .v6.sig-name { font-size: 16px !important; }
+  body .v6 .sig-meta, body .v6.sig-meta { font-size: 13px !important; }
+}
+  body.dark .v6 .sig-bg, body.dark .v6.sig-bg { background-color: #1c1c1e !important; }
+  body.dark .v6 .sig-name, body.dark .v6.sig-name { color: #f5f5f7 !important; }
+  body.dark .v6 .sig-role, body.dark .v6.sig-role { color: #a1a1a6 !important; }
+  body.dark .v6 .sig-meta, body.dark .v6.sig-meta, body.dark .v6 .sig-meta a, body.dark .v6.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v6 .sig-accent, body.dark .v6.sig-accent, body.dark .v6 .sig-accent a, body.dark .v6.sig-accent a { color: #4ade80 !important; }
+  body.dark .v6 .sig-bar, body.dark .v6.sig-bar { background-color: #4ade80 !important; }
+  body.dark .v6 .sig-dot, body.dark .v6.sig-dot { color: #5a5a5e !important; }  body.mob .v7 .sig-wrap, body.mob .v7.sig-wrap { width: 100% !important; }
+  body.mob .v7 .sig-barname, body.mob .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
+  body.mob .v7 .sig-bartag, body.mob .v7.sig-bartag { display: none !important; }
+  body.mob .v7 .sig-name, body.mob .v7.sig-name { font-size: 17px !important; }
+  body.mob .v7 .sig-body, body.mob .v7.sig-body { padding: 14px 16px !important; }@media (max-width: 700px) {  body .v7 .sig-wrap, body .v7.sig-wrap { width: 100% !important; }
+  body .v7 .sig-barname, body .v7.sig-barname { font-size: 14px !important; letter-spacing: 1px !important; }
+  body .v7 .sig-bartag, body .v7.sig-bartag { display: none !important; }
+  body .v7 .sig-name, body .v7.sig-name { font-size: 17px !important; }
+  body .v7 .sig-body, body .v7.sig-body { padding: 14px 16px !important; }
+}
+  body.dark .v7 .sig-body, body.dark .v7.sig-body { background-color: #1c1c1e !important; }
+  body.dark .v7 .sig-name, body.dark .v7.sig-name { color: #f5f5f7 !important; }
+  body.dark .v7 .sig-role, body.dark .v7.sig-role { color: #a1a1a6 !important; }
+  body.dark .v7 .sig-meta, body.dark .v7.sig-meta, body.dark .v7 .sig-meta a, body.dark .v7.sig-meta a { color: #d6d6d8 !important; }
+  body.dark .v7 .sig-accent, body.dark .v7.sig-accent, body.dark .v7 .sig-accent a, body.dark .v7.sig-accent a { color: #5eead4 !important; }
+  body.dark .v7 .sig-hair, body.dark .v7.sig-hair { background-color: #3a3a3c !important; }
+    /* Bar stays in the same family on purpose - see the note above */
+  body.dark .v7 .sig-bar, body.dark .v7.sig-bar { background-color: #0f766e !important; }  body.mob .v8 .ad-shell, body.mob .v8.ad-shell { width: 100% !important; }
+  body.mob .v8 .ad-pad, body.mob .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
+  body.mob .v8 .ad-h1, body.mob .v8.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
+  body.mob .v8 .ad-card-img, body.mob .v8.ad-card-img { width: 100% !important; height: auto !important; }
+  body.mob .v8 .ad-btn, body.mob .v8.ad-btn { width: 100% !important; }
+  body.mob .v8 .ad-band, body.mob .v8.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }@media (max-width: 700px) {  body .v8 .ad-shell, body .v8.ad-shell { width: 100% !important; }
+  body .v8 .ad-pad, body .v8.ad-pad { padding-left: 22px !important; padding-right: 22px !important; }
+  body .v8 .ad-h1, body .v8.ad-h1 { font-size: 25px !important; line-height: 32px !important; }
+  body .v8 .ad-card-img, body .v8.ad-card-img { width: 100% !important; height: auto !important; }
+  body .v8 .ad-btn, body .v8.ad-btn { width: 100% !important; }
+  body .v8 .ad-band, body .v8.ad-band { font-size: 12px !important; letter-spacing: 0.8px !important; }
+}
+  body.dark .v8 .ad-page, body.dark .v8.ad-page { background-color: #0b0b0d !important; }
+  body.dark .v8 .ad-card, body.dark .v8.ad-card { background-color: #17181b !important; }
+  body.dark .v8 .ad-h1, body.dark .v8.ad-h1 { color: #f5f5f7 !important; }
+  body.dark .v8 .ad-body, body.dark .v8.ad-body { color: #d0d0d4 !important; }
+  body.dark .v8 .ad-muted, body.dark .v8.ad-muted { color: #9a9aa0 !important; }
+  body.dark .v8 .ad-rule, body.dark .v8.ad-rule { background-color: #34343a !important; }
+  body.dark .v8 .ad-note, body.dark .v8.ad-note { background-color: #202127 !important; }
+  body.dark .v8 .ad-strong, body.dark .v8.ad-strong { color: #f5f5f7 !important; }
+  body.dark .v8 .ad-btn, body.dark .v8.ad-btn { background-color: #e0a80d !important; color: #0f2d52 !important; }</style>
 <script>
 var b=document.body,
     tl=document.getElementById('t-light'), td=document.getElementById('t-dark'),
@@ -1173,9 +1140,10 @@ function swap(dark){
   var n=document.querySelectorAll('img.swap');
   for(var i=0;i<n.length;i++) n[i].src=n[i].getAttribute(dark?'data-dark':'data-light');
 }
-tl.onclick=function(){b.classList.remove('dark');tl.setAttribute('aria-pressed','true');td.setAttribute('aria-pressed','false');swap(false);};
-td.onclick=function(){b.classList.add('dark');tl.setAttribute('aria-pressed','false');td.setAttribute('aria-pressed','true');swap(true);};
-tk.onclick=function(){b.classList.remove('mob');tk.setAttribute('aria-pressed','true');tm.setAttribute('aria-pressed','false');};
-tm.onclick=function(){b.classList.add('mob');tk.setAttribute('aria-pressed','false');tm.setAttribute('aria-pressed','true');};
+function pair(on,off){ on.setAttribute('aria-pressed','true'); off.setAttribute('aria-pressed','false'); }
+tl.onclick=function(){ b.classList.remove('dark'); pair(tl,td); swap(false); };
+td.onclick=function(){ b.classList.add('dark');    pair(td,tl); swap(true);  };
+tk.onclick=function(){ b.classList.remove('mob');  pair(tk,tm); };
+tm.onclick=function(){ b.classList.add('mob');     pair(tm,tk); };
 </script>
 </body></html>
