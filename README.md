@@ -1,6 +1,6 @@
 # HTML email signatures
 
-Eight signatures and one campaign email, hand-coded. No builder, no framework, no generator output.
+Seven signatures and two campaign emails, hand-coded. No builder, no framework, no generator output.
 
 Open `index.html` in a browser to see all nine. The buttons switch light/dark
 and desktop/mobile.
@@ -14,13 +14,13 @@ and desktop/mobile.
 | `05-pozhegu-corporate.html` | Full corporate: logo, department, socials, legal footer |
 | `06-minimal-text.html` | Zero images, ~1.5 KB, cannot break |
 | `07-header-bar.html` | Reversed white-on-brand header bar |
-| `08-qr-vcard.html` | Scannable vCard QR, social column, Save contact button |
-| `09-banka-dardania-ad.html` | 600px marketing email: preheader, hero, three steps, CTA, legal footer |
+| `08-banka-dardania-ad.html` | 600px campaign email to existing customers |
+| `09-banka-dardania-signup.html` | 600px acquisition email: offer band, card shot, ticks, CTA |
 | `index.html` | All nine, with light/dark and desktop/mobile toggles |
 
 Images: `dard-rezniqi.png`, `logo.png` / `logo-dark.png`, `pb-logo.png` /
 `pb-logo-dark.png`, `pb-mark.png` / `pb-mark-dark.png`, `icon-*.png`,
-`qr-vcard.png` / `qr-vcard-dark.png`, `bd-*.png`, plus `dard-rezniqi.vcf`.
+`bd-*.png` (wordmark, hero, card, ticks, step and social icons).
 
 **Pozhegu Brothers and Banka Dardania are invented companies**, used as demo
 brands in 05/07 and 09. No real institution, product, offer, phone number,
@@ -78,7 +78,7 @@ everything is square throughout instead.
 **Buttons are written twice.** Outlook gets a VML `<v:roundrect>`, everything
 else gets a padded `<a>`, and conditional comments make sure only one renders.
 Word ignores padding on anchors, so without the VML half the button collapses
-to plain blue text. See 04 (solid), 08 (outline) and 09 (the campaign CTA).
+to plain blue text. See 04, 08 and 09.
 
 **Social icons are separate `<td>`s**, not one image with an image map. Outlook
 drops image maps and you lose every link at once.
@@ -93,8 +93,8 @@ loud:
   no client recolours image pixels. That's why 02 and 05 serve a second logo
   file through `<picture>` - Apple Mail and iOS honour it, Gmail and Outlook
   fall through to the `<img>`, which is the version that reads on white.
-- An outline button (dark ink, transparent fill) is invisible on dark. 08 sets
-  an explicit background and an explicit dark-mode colour for exactly this.
+- Navy bold text and a navy button both disappear on a dark card. In 08 and
+  09 the emphasis lifts to white and the button flips to the brand gold.
 
 **The reversed bar in 07** is the single riskiest thing you can put in a
 signature: white text on a solid fill, where some clients invert the background
@@ -106,22 +106,18 @@ rule keeps it in the same colour family instead of flipping it.
 **Images always carry `alt`, `width`, `height` and `display:block`.** Outlook
 blocks images by default, so every signature has to still make sense as text.
 That's also why the CTA copy in 04 is live text rather than baked into the
-banner image, and why everything the QR in 08 encodes is also present as
-`tel:` and `mailto:` links.
-
-**The QR's quiet zone is intact.** That white margin is part of the spec, and
-cropping it to save space is the most common reason a signature QR fails to
-scan. The dark variant is a separately generated image, not a CSS filter,
-because an inverted QR doesn't scan reliably on older phone cameras.
+banner image, and why the offer band in 09 is a filled `<td>` with live text
+rather than a banner graphic - a baked-in offer image loses the entire pitch
+the moment images are blocked, which is Outlook's default.
 
 **Clickable everywhere:** `tel:` on phones, `mailto:` on emails, a Google Maps
 link on addresses. The `a[x-apple-data-detectors]` block stops iOS re-styling
 numbers it auto-detects into its own blue.
 
-## The campaign email (09)
+## The campaign emails (08 and 09)
 
-A signature and a campaign email are not the same job, and 09 exists to show
-the difference:
+A signature and a campaign email are not the same job. 08 talks to existing
+customers; 09 is the hard-sell acquisition format. What they share:
 
 - **600px, not 470.** That is the width Outlook's reading pane settled on and
   everyone still builds to. Wider gets clipped.
@@ -137,10 +133,26 @@ the difference:
   table sits inside it.
 - **Every row is its own table.** Campaigns get edited by people who are not
   developers, and self-contained rows survive being reordered.
+- **Benefit lists are two-column tables, not `<ul>`.** Outlook ignores padding
+  on list items and indents them differently between versions, so ticks drift
+  out of alignment.
 - **Dark mode needed two extra rules**, both found by testing rather than
   guessing: navy bold text disappears on a dark card, and a navy button barely
   separates from one. The emphasis lifts to white and the button flips to the
   brand gold so the CTA stays the loudest thing on screen.
+
+**Every link in 08 and 09 points at this portfolio index**, never at a bank.
+A polished bank email whose links resolve to a real financial institution is a
+phishing template whatever the intent behind it, and it only takes one forward
+for that to stop being hypothetical.
+
+## The preview page
+
+`index.html` is responsive in its own right, not a desktop page with a
+simulator button bolted on. Below 620px the signatures' own mobile rules apply
+for real; the Mobile toggle exists so the same thing can be checked from a
+desktop. Signatures are fixed-width by design, so the stage scrolls on its own
+axis rather than forcing a horizontal scrollbar across the whole page.
 
 ## Tested
 
