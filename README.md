@@ -1,8 +1,8 @@
 # HTML email signatures
 
-Eight signatures, hand-coded. No builder, no framework, no generator output.
+Eight signatures and one campaign email, hand-coded. No builder, no framework, no generator output.
 
-Open `index.html` in a browser to see all eight. The buttons switch light/dark
+Open `index.html` in a browser to see all nine. The buttons switch light/dark
 and desktop/mobile.
 
 | File | What it is |
@@ -15,15 +15,17 @@ and desktop/mobile.
 | `06-minimal-text.html` | Zero images, ~1.5 KB, cannot break |
 | `07-header-bar.html` | Reversed white-on-brand header bar |
 | `08-qr-vcard.html` | Scannable vCard QR, social column, Save contact button |
-| `index.html` | All eight, with light/dark and desktop/mobile toggles |
+| `09-banka-dardania-ad.html` | 600px marketing email: preheader, hero, three steps, CTA, legal footer |
+| `index.html` | All nine, with light/dark and desktop/mobile toggles |
 
 Images: `dard-rezniqi.png`, `logo.png` / `logo-dark.png`, `pb-logo.png` /
 `pb-logo-dark.png`, `pb-mark.png` / `pb-mark-dark.png`, `icon-*.png`,
-`qr-vcard.png` / `qr-vcard-dark.png`, plus `dard-rezniqi.vcf`.
+`qr-vcard.png` / `qr-vcard-dark.png`, `bd-*.png`, plus `dard-rezniqi.vcf`.
 
-**Pozhegu Brothers is an invented company** used as a demo brand in 05 and 07.
-The phone numbers, address and domain are not real. The social glyphs are
-placeholders too - swap in the real brand marks before shipping anything.
+**Pozhegu Brothers and Banka Dardania are invented companies**, used as demo
+brands in 05/07 and 09. No real institution, product, offer, phone number,
+address or domain appears anywhere. The social glyphs are placeholders too -
+swap in the real brand marks before shipping anything.
 
 ## Before you use them
 
@@ -71,12 +73,12 @@ the width you gave it.
 
 **No `border-radius`.** Outlook Classic squares corners off. Rounding would
 mean the signature looks different in the one client this is actually about, so
-everything is square in all eight instead.
+everything is square throughout instead.
 
 **Buttons are written twice.** Outlook gets a VML `<v:roundrect>`, everything
 else gets a padded `<a>`, and conditional comments make sure only one renders.
 Word ignores padding on anchors, so without the VML half the button collapses
-to plain blue text. See 04 (solid) and 08 (outline).
+to plain blue text. See 04 (solid), 08 (outline) and 09 (the campaign CTA).
 
 **Social icons are separate `<td>`s**, not one image with an image map. Outlook
 drops image maps and you lose every link at once.
@@ -115,6 +117,30 @@ because an inverted QR doesn't scan reliably on older phone cameras.
 **Clickable everywhere:** `tel:` on phones, `mailto:` on emails, a Google Maps
 link on addresses. The `a[x-apple-data-detectors]` block stops iOS re-styling
 numbers it auto-detects into its own blue.
+
+## The campaign email (09)
+
+A signature and a campaign email are not the same job, and 09 exists to show
+the difference:
+
+- **600px, not 470.** That is the width Outlook's reading pane settled on and
+  everyone still builds to. Wider gets clipped.
+- **A preheader.** The hidden block under `<body>` is what the inbox shows
+  next to the subject line. Without one, clients grab the first text they find,
+  which is usually "View in browser". The zero-width joiners after it stop the
+  client dragging body copy in behind it.
+- **Nothing load-bearing inside an image.** Headline, all three steps and the
+  button label are live text. Turn every image off - Outlook's default - and
+  the email still makes its case.
+- **Centring comes from `align="center"` on a nested table**, because Outlook
+  ignores `margin:auto`. The outer table is a 100% wrapper; the fixed 600px
+  table sits inside it.
+- **Every row is its own table.** Campaigns get edited by people who are not
+  developers, and self-contained rows survive being reordered.
+- **Dark mode needed two extra rules**, both found by testing rather than
+  guessing: navy bold text disappears on a dark card, and a navy button barely
+  separates from one. The emphasis lifts to white and the button flips to the
+  brand gold so the CTA stays the loudest thing on screen.
 
 ## Tested
 
