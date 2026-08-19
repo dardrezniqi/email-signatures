@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Email Signature 04 — Signature + Banner</title>
+
+<!--[if mso]>
+<xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+<![endif]-->
+
+<!--
+  SIGNATURE 04 — SIGNATURE + PROMO BANNER (the "email ad" variant)
+  Signature block, then a full-width promo strip with a call-to-action button.
+
+  The button is bulletproof: Outlook Classic gets a VML <v:roundrect>, every
+  other client gets a padded <a>. Outlook's Word engine ignores padding on
+  anchors, so without the VML half the button collapses to plain blue text.
+  Only one of the two ever renders — the conditional comments make sure of it.
+
+  The banner keeps the CTA as live text rather than baking it into the image,
+  so it still reads when images are blocked, which is Outlook's default.
+
+  REPLACE BEFORE USE: every src="https://REPLACE-ME..." and the button href.
+-->
+
+<style type="text/css">
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+
+  a[x-apple-data-detectors] {
+    color: inherit !important; text-decoration: none !important;
+    font-size: inherit !important; font-family: inherit !important;
+    font-weight: inherit !important; line-height: inherit !important;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .sig-wrap      { width: 100% !important; }
+    .sig-stack     { display: block !important; width: 100% !important; }
+    .sig-photo-td  { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; }
+    .sig-body-td   { display: block !important; width: 100% !important; padding: 0 !important; }
+    .sig-name      { font-size: 17px !important; }
+    /* Banner: text over the button instead of beside it */
+    .ban-stack     { display: block !important; width: 100% !important; }
+    .ban-copy-td   { display: block !important; width: 100% !important; padding: 0 0 12px 0 !important; text-align: left !important; }
+    .ban-cta-td    { display: block !important; width: 100% !important; padding: 0 !important; text-align: left !important; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .sig-bg      { background-color: #1c1c1e !important; }
+    .sig-name    { color: #f5f5f7 !important; }
+    .sig-role    { color: #a1a1a6 !important; }
+    .sig-meta,
+    .sig-meta a  { color: #d6d6d8 !important; }
+    .sig-accent,
+    .sig-accent a{ color: #7fb0ff !important; }
+    .sig-hair    { background-color: #3a3a3c !important; }
+    .ban-panel   { background-color: #232325 !important; }
+    .ban-head    { color: #f5f5f7 !important; }
+    .ban-sub     { color: #a1a1a6 !important; }
+  }
+
+  [data-ogsc] .sig-bg     { background-color: #1c1c1e !important; }
+  [data-ogsc] .sig-name   { color: #f5f5f7 !important; }
+  [data-ogsc] .sig-role   { color: #a1a1a6 !important; }
+  [data-ogsc] .sig-meta,
+  [data-ogsc] .sig-meta a { color: #d6d6d8 !important; }
+  [data-ogsc] .sig-accent,
+  [data-ogsc] .sig-accent a { color: #7fb0ff !important; }
+  [data-ogsc] .sig-hair   { background-color: #3a3a3c !important; }
+  [data-ogsc] .ban-panel  { background-color: #232325 !important; }
+  [data-ogsc] .ban-head   { color: #f5f5f7 !important; }
+  [data-ogsc] .ban-sub    { color: #a1a1a6 !important; }
+</style>
+</head>
+
+<body style="margin:0; padding:0;">
+
+<!-- ===== SIGNATURE START — copy from here ===== -->
+<table class="sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="470"
+       style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:470px; max-width:470px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+
+  <!-- ---------- Signature block ---------- -->
+  <tr>
+    <td style="padding:0;">
+
+      <table class="sig-stack" role="presentation" cellpadding="0" cellspacing="0" border="0"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tr>
+
+          <td class="sig-photo-td" valign="top" width="76" style="width:76px; padding:0 16px 0 0;">
+            <img src="https://dardrezniqi.github.io/email-signatures/dard-rezniqi.png"
+                 width="76" height="76" alt="Dard Rezniqi"
+                 style="display:block; width:76px; height:76px; border:0; outline:none; text-decoration:none; border-radius:6px; -ms-interpolation-mode:bicubic;">
+          </td>
+
+          <td class="sig-body-td" valign="top" style="padding:0;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                   style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+
+              <tr>
+                <td class="sig-name" style="padding:0 0 1px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:18px; line-height:24px; mso-line-height-rule:exactly; font-weight:700; color:#1a1a1c; letter-spacing:-0.2px;">
+                  Dard Rezniqi
+                </td>
+              </tr>
+
+              <tr>
+                <td class="sig-role" style="padding:0 0 9px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:18px; mso-line-height-rule:exactly; color:#6e6e73;">
+                  Software Developer
+                </td>
+              </tr>
+
+              <tr>
+                <td class="sig-meta" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#3a3a3c;">
+                  <a href="tel:+38349812525" style="color:#3a3a3c; text-decoration:none;">+383 49 812 525</a>
+                  &nbsp;&middot;&nbsp;
+                  <a href="mailto:dard.rezniqi@gmail.com" style="color:#3a3a3c; text-decoration:none;">dard.rezniqi@gmail.com</a>
+                </td>
+              </tr>
+
+              <tr>
+                <td class="sig-meta" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#3a3a3c;">
+                  <a href="https://maps.google.com/?q=Prishtina,%20Kosovo" style="color:#3a3a3c; text-decoration:none;">Prishtina, Kosovo</a>
+                  &nbsp;&middot;&nbsp;
+                  <span class="sig-accent"><a href="https://github.com/dardrezniqi" style="color:#2563eb; text-decoration:none; font-weight:600;">GitHub</a></span>
+                </td>
+              </tr>
+
+            </table>
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+
+  <!-- ---------- Spacer ---------- -->
+  <tr><td height="16" style="height:16px; font-size:0; line-height:0;">&nbsp;</td></tr>
+
+  <!-- ---------- Promo banner ---------- -->
+  <tr>
+    <td class="ban-panel" bgcolor="#f6f7f9" style="background-color:#f6f7f9; padding:14px 18px;">
+
+      <table class="ban-stack" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tr>
+
+          <td class="ban-copy-td" valign="middle" style="padding:0 14px 0 0;">
+            <div class="ban-head" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:14px; line-height:19px; mso-line-height-rule:exactly; font-weight:700; color:#1a1a1c;">
+              Need an email signature that survives Outlook?
+            </div>
+            <div class="ban-sub" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:12px; line-height:18px; mso-line-height-rule:exactly; color:#6e6e73; padding-top:2px;">
+              Hand-coded, tested, delivered in 48 hours.
+            </div>
+          </td>
+
+          <td class="ban-cta-td" valign="middle" align="right" width="132" style="width:132px; padding:0;">
+
+            <!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                         href="mailto:dard.rezniqi@gmail.com"
+                         style="height:36px; v-text-anchor:middle; width:126px;"
+                         arcsize="0%" stroke="f" fillcolor="#2563eb">
+              <w:anchorlock/>
+              <center style="color:#ffffff; font-family:'Segoe UI', Arial, sans-serif; font-size:13px; font-weight:bold;">Get in touch</center>
+            </v:roundrect>
+            <![endif]-->
+
+            <!--[if !mso]><!-- -->
+            <a href="mailto:dard.rezniqi@gmail.com"
+               style="display:inline-block; background-color:#2563eb; color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:36px; font-weight:700; text-align:center; text-decoration:none; width:126px; height:36px; mso-hide:all;">Get in touch</a>
+            <!--<![endif]-->
+
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+
+</table>
+<!-- ===== SIGNATURE END ===== -->
+
+</body>
+</html>

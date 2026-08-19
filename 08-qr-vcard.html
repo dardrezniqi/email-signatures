@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="x-apple-disable-message-reformatting">
+<meta name="color-scheme" content="light dark">
+<meta name="supported-color-schemes" content="light dark">
+<title>Email Signature 08 - QR vCard and socials</title>
+
+<!--[if mso]>
+<xml><o:OfficeDocumentSettings><o:PixelsPerInch>96</o:PixelsPerInch></o:OfficeDocumentSettings></xml>
+<![endif]-->
+
+<!--
+  SIGNATURE 08 - QR vCARD + SOCIAL ROW
+
+  Three columns: details, social icons, QR. The QR encodes a full vCard, so
+  someone reading the email on a laptop can point a phone at it and have the
+  contact saved without typing anything.
+
+  The QR is the reason this one needs care:
+  - It is a real image, so if images are blocked it is gone. Everything the QR
+    contains is therefore also present as text and as tel:/mailto: links. The
+    QR is a shortcut, never the only route.
+  - QR readers need contrast. On dark backgrounds an inverted QR still scans
+    on most modern phone cameras but not all, so the dark variant is a
+    separately generated image with a dark quiet zone rather than a CSS filter.
+  - The quiet zone (the white margin) is part of the spec. Cropping it to save
+    space is the most common reason a signature QR fails to scan.
+
+  There is also a "Save contact" button underneath in VML + HTML, pointing at
+  a hosted .vcf, for anyone who is on the same device and cannot scan. It is an
+  outline button, which is the one button style that needs an explicit fill and
+  an explicit dark-mode colour - dark ink on a transparent background reads
+  fine on white and vanishes completely on a dark one.
+
+  REPLACE BEFORE USE: every src="https://REPLACE-ME..." and the .vcf href.
+-->
+
+<style type="text/css">
+  :root { color-scheme: light dark; supported-color-schemes: light dark; }
+
+  a[x-apple-data-detectors] {
+    color: inherit !important; text-decoration: none !important;
+    font-size: inherit !important; font-family: inherit !important;
+    font-weight: inherit !important; line-height: inherit !important;
+  }
+
+  @media only screen and (max-width: 480px) {
+    .sig-wrap    { width: 100% !important; }
+    .sig-stack   { display: block !important; width: 100% !important; }
+    .sig-body-td { display: block !important; width: 100% !important; padding: 0 0 14px 0 !important; }
+    .sig-soc-td  { display: block !important; width: 100% !important; padding: 0 0 14px 0 !important; }
+    /* On a phone you are already holding the phone - the QR is useless there */
+    .sig-qr-td   { display: none !important; }
+    .sig-name    { font-size: 17px !important; }
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .sig-bg     { background-color: #1c1c1e !important; }
+    .sig-name   { color: #f5f5f7 !important; }
+    .sig-role   { color: #a1a1a6 !important; }
+    .sig-meta,
+    .sig-meta a { color: #d6d6d8 !important; }
+    .sig-accent,
+    .sig-accent a { color: #7fb0ff !important; }
+    .sig-hair   { background-color: #3a3a3c !important; }
+    .sig-qrcap  { color: #8e8e93 !important; }
+    .sig-btn    { color: #f5f5f7 !important; border-color: #5a5a5e !important; background-color: #1c1c1e !important; }
+  }
+
+  [data-ogsc] .sig-bg     { background-color: #1c1c1e !important; }
+  [data-ogsc] .sig-name   { color: #f5f5f7 !important; }
+  [data-ogsc] .sig-role   { color: #a1a1a6 !important; }
+  [data-ogsc] .sig-meta,
+  [data-ogsc] .sig-meta a { color: #d6d6d8 !important; }
+  [data-ogsc] .sig-accent,
+  [data-ogsc] .sig-accent a { color: #7fb0ff !important; }
+  [data-ogsc] .sig-hair   { background-color: #3a3a3c !important; }
+  [data-ogsc] .sig-qrcap  { color: #8e8e93 !important; }
+  [data-ogsc] .sig-btn    { color: #f5f5f7 !important; border-color: #5a5a5e !important; background-color: #1c1c1e !important; }
+</style>
+</head>
+
+<body style="margin:0; padding:0;">
+
+<!-- ===== SIGNATURE START ===== -->
+<table class="sig-wrap sig-bg" role="presentation" cellpadding="0" cellspacing="0" border="0" width="500"
+       style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:500px; max-width:500px; background-color:#ffffff; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-text-size-adjust:100%; -ms-text-size-adjust:100%;">
+  <tr>
+    <td style="padding:0;">
+
+      <table class="sig-stack" role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"
+             style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+        <tr>
+
+          <!-- Details -->
+          <td class="sig-body-td" valign="top" style="padding:0 18px 0 0;">
+
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                   style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+              <tr>
+                <td class="sig-name" style="padding:0 0 1px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:18px; line-height:24px; mso-line-height-rule:exactly; font-weight:700; color:#1a1a1c; letter-spacing:-0.2px;">
+                  Dard Rezniqi
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-role" style="padding:0 0 9px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:18px; mso-line-height-rule:exactly; color:#6e6e73;">
+                  Software Developer
+                </td>
+              </tr>
+
+              <tr><td class="sig-hair" height="1" style="height:1px; font-size:0; line-height:0; background-color:#e3e3e6;">&nbsp;</td></tr>
+              <tr><td height="9" style="height:9px; font-size:0; line-height:0;">&nbsp;</td></tr>
+
+              <tr>
+                <td class="sig-meta" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#3a3a3c;">
+                  <a href="tel:+38349812525" style="color:#3a3a3c; text-decoration:none;">+383 49 812 525</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-meta" style="padding:0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#3a3a3c;">
+                  <a href="mailto:dard.rezniqi@gmail.com" style="color:#3a3a3c; text-decoration:none;">dard.rezniqi@gmail.com</a>
+                </td>
+              </tr>
+              <tr>
+                <td class="sig-meta" style="padding:0 0 12px 0; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:13px; line-height:21px; mso-line-height-rule:exactly; color:#3a3a3c;">
+                  <a href="https://maps.google.com/?q=Prishtina,+Kosovo" style="color:#3a3a3c; text-decoration:none;">Prishtina, Kosovo</a>
+                </td>
+              </tr>
+
+              <!-- Save contact button -->
+              <tr>
+                <td style="padding:0;">
+                  <!--[if mso]>
+                  <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word"
+                               href="https://dardrezniqi.github.io/email-signatures/dard-rezniqi.vcf"
+                               style="height:32px; v-text-anchor:middle; width:130px;"
+                               arcsize="0%" stroke="t" strokecolor="#c7c7cc" fillcolor="#ffffff">
+                    <w:anchorlock/>
+                    <center style="color:#1a1a1c; font-family:'Segoe UI', Arial, sans-serif; font-size:12px; font-weight:bold;">Save contact</center>
+                  </v:roundrect>
+                  <![endif]-->
+                  <!--[if !mso]><!-- -->
+                  <a class="sig-btn" href="https://dardrezniqi.github.io/email-signatures/dard-rezniqi.vcf"
+                     style="display:inline-block; background-color:#ffffff; border:1px solid #c7c7cc; color:#1a1a1c; font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:12px; line-height:30px; font-weight:700; text-align:center; text-decoration:none; width:130px; height:32px; mso-hide:all;">Save contact</a>
+                  <!--<![endif]-->
+                </td>
+              </tr>
+
+            </table>
+
+          </td>
+
+          <!-- Social icons, stacked vertically -->
+          <td class="sig-soc-td" valign="top" width="32" style="width:32px; padding:2px 18px 0 0;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0"
+                   style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt;">
+              <tr><td style="padding:0 0 8px 0;">
+                <a href="https://github.com/dardrezniqi">
+                  <picture>
+                    <source srcset="https://dardrezniqi.github.io/email-signatures/icon-github-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="https://dardrezniqi.github.io/email-signatures/icon-github.png" width="26" height="26" alt="GitHub"
+                         style="display:block; width:26px; height:26px; border:0; outline:none; text-decoration:none;">
+                  </picture>
+                </a>
+              </td></tr>
+              <tr><td style="padding:0;">
+                <a href="https://linkedin.com/in/dard-rezniqi">
+                  <picture>
+                    <source srcset="https://dardrezniqi.github.io/email-signatures/icon-linkedin-dark.png" media="(prefers-color-scheme: dark)">
+                    <img src="https://dardrezniqi.github.io/email-signatures/icon-linkedin.png" width="26" height="26" alt="LinkedIn"
+                         style="display:block; width:26px; height:26px; border:0; outline:none; text-decoration:none;">
+                  </picture>
+                </a>
+              </td></tr>
+            </table>
+          </td>
+
+          <!-- QR -->
+          <td class="sig-qr-td" valign="top" width="88" style="width:88px; padding:0;">
+            <picture>
+              <source srcset="https://dardrezniqi.github.io/email-signatures/qr-vcard-dark.png" media="(prefers-color-scheme: dark)">
+              <img src="https://dardrezniqi.github.io/email-signatures/qr-vcard.png"
+                   width="88" height="88" alt="QR code with contact details"
+                   style="display:block; width:88px; height:88px; border:0; outline:none; text-decoration:none;">
+            </picture>
+            <div class="sig-qrcap" style="font-family:'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-size:10px; line-height:15px; mso-line-height-rule:exactly; color:#a1a1a6; padding-top:4px; text-align:center;">
+              Scan to save
+            </div>
+          </td>
+
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+<!-- ===== SIGNATURE END ===== -->
+
+</body>
+</html>
